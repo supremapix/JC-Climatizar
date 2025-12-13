@@ -16,7 +16,7 @@ export const COMPANY_INFO = {
 
 export const NAVIGATION_LINKS = [
   { name: 'Início', href: '/' },
-  { name: 'Serviços', href: '/#services' },
+  { name: 'Serviços', href: '#/servicos' }, // Point to new page
   { name: 'Cidades Atendidas', href: '/#coverage' },
   { name: '🇦🇷 Argentina', href: '/#argentina' },
   { name: 'Sobre', href: '/#about' },
@@ -27,22 +27,26 @@ export const SERVICES_LIST = [
   {
     title: "Instalação",
     description: "Instalação profissional de ar condicionado split, cassete e piso teto, seguindo todas as normas técnicas.",
-    icon: "fa-screwdriver-wrench"
+    icon: "fa-screwdriver-wrench",
+    id: "instalacao"
   },
   {
     title: "Manutenção Preventiva",
     description: "Evite problemas futuros e garanta a qualidade do ar com nossos planos de manutenção periódica.",
-    icon: "fa-clipboard-check"
+    icon: "fa-clipboard-check",
+    id: "manutencao"
   },
   {
     title: "Limpeza e Higienização",
     description: "Eliminação de fungos e bactérias, garantindo um ar mais saudável para sua família ou empresa.",
-    icon: "fa-pump-soap"
+    icon: "fa-pump-soap",
+    id: "limpeza"
   },
   {
     title: "Projetos Comerciais",
     description: "Soluções personalizadas de climatização para escritórios, lojas e grandes ambientes.",
-    icon: "fa-building"
+    icon: "fa-building",
+    id: "infraestrutura"
   }
 ];
 

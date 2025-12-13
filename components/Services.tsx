@@ -47,6 +47,7 @@ const Services: React.FC = () => {
               key={index}
               ref={el => cardsRef.current[index] = el}
               className="bg-white p-6 md:p-8 rounded-2xl shadow-xl transition-all duration-500 ease-out opacity-0 translate-y-12 relative overflow-hidden group preserve-3d md:service-card-hover border border-transparent cursor-pointer active:scale-[0.98]"
+              onClick={() => window.location.href = `#/servicos`}
             >
               {/* Shining Effect */}
               <div className="absolute top-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-jc-gold/20 to-transparent transition-all duration-500 group-hover:left-full pointer-events-none z-10"></div>
@@ -63,10 +64,10 @@ const Services: React.FC = () => {
                 </p>
 
                 <div className="text-center">
-                    <button className="px-6 py-2 rounded-full border-2 border-jc-navy text-jc-navy font-semibold text-xs md:text-sm transition-all duration-300 relative overflow-hidden btn-more group-hover:border-jc-gold group-hover:text-jc-navy group-hover:scale-105">
+                    <a href="#/servicos" className="inline-block px-6 py-2 rounded-full border-2 border-jc-navy text-jc-navy font-semibold text-xs md:text-sm transition-all duration-300 relative overflow-hidden btn-more group-hover:border-jc-gold group-hover:text-jc-navy group-hover:scale-105">
                         <span className="relative z-10">Saiba Mais</span>
                         <div className="absolute inset-0 bg-jc-gold transform -translate-x-full transition-transform duration-300 group-hover:translate-x-0 -z-0"></div>
-                    </button>
+                    </a>
                 </div>
               </div>
             </div>
