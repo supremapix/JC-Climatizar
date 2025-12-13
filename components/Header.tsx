@@ -13,13 +13,13 @@ const Header: React.FC = () => {
       const currentScrollY = window.scrollY;
       
       // Style change on scroll
-      if (currentScrollY > 100) {
+      if (currentScrollY > 50) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
       }
 
-      // Hide/Show logic
+      // Hide/Show logic (only on scroll down significantly)
       if (currentScrollY > lastScrollY && currentScrollY > 500) {
         setIsHidden(true);
       } else {
@@ -33,16 +33,26 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
 
+  // Close mobile menu when route changes or scrolling
+  useEffect(() => {
+    const handleResize = () => setIsMobileMenuOpen(false);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <header 
       className={`fixed w-full z-50 transition-all duration-300 animate-slideDown ${
-        isScrolled ? 'bg-jc-navy shadow-[0_5px_30px_rgba(0,0,0,0.3)]' : 'bg-jc-navy/95 backdrop-blur-md'
-      } ${isHidden ? '-translate-y-full' : 'translate-y-0'}`}
+        isScrolled || isMobileMenuOpen ? 'bg-jc-navy shadow-[0_5px_30px_rgba(0,0,0,0.3)]' : 'bg-jc-navy/95 backdrop-blur-md'
+      } ${isHidden && !isMobileMenuOpen ? '-translate-y-full' : 'translate-y-0'}`}
     >
-      <div className={`container mx-auto px-4 md:px-8 flex justify-between items-center transition-all duration-300 ${isScrolled ? 'py-2' : 'py-4'}`}>
+      <div className={`container mx-auto px-4 md:px-8 flex justify-between items-center transition-all duration-300 ${isScrolled ? 'py-3' : 'py-4'}`}>
         
-        <a href="/" className="flex-shrink-0 group animate-fadeInScale">
-          <Logo variant="light" className="transition-transform duration-300 group-hover:scale-105 group-hover:rotate-2" />
+        <a href="/" className="flex-shrink-0 group animate-fadeInScale z-50 relative">
+          {/* Logo scales slightly on mobile to save space */}
+          <div className="scale-90 md:scale-100 origin-left">
+            <Logo variant="light" className="transition-transform duration-300 group-hover:scale-105 group-hover:rotate-2" />
+          </div>
         </a>
 
         {/* Desktop Nav */}
@@ -66,37 +76,40 @@ const Header: React.FC = () => {
           </a>
         </nav>
 
-        {/* Mobile Toggle */}
+        {/* Mobile Toggle Button */}
         <button 
-          className="md:hidden text-white text-2xl focus:outline-none"
+          className="md:hidden text-white text-3xl focus:outline-none z-50 p-2 active:scale-95 transition-transform"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Abrir Menu"
         >
           <i className={`fas ${isMobileMenuOpen ? 'fa-times' : 'fa-bars'}`}></i>
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Overlay */}
       <div 
-        className={`md:hidden absolute top-full left-0 w-full bg-jc-navy border-t border-gray-700 shadow-xl transition-all duration-300 overflow-hidden ${
-          isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        className={`md:hidden fixed inset-0 bg-jc-navy/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center transition-all duration-500 ease-in-out ${
+          isMobileMenuOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-10 pointer-events-none'
         }`}
       >
-        <div className="flex flex-col p-4 gap-4">
-          {NAVIGATION_LINKS.map((link) => (
+        <div className="flex flex-col w-full max-w-xs gap-6 p-4">
+          {NAVIGATION_LINKS.map((link, idx) => (
             <a 
               key={link.name} 
               href={link.href}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="text-white hover:text-jc-gold py-2 border-b border-gray-700 last:border-0 font-medium"
+              className="text-white text-xl font-bold text-center py-3 border-b border-white/10 hover:text-jc-gold transition-colors animate-fadeInUp"
+              style={{ animationDelay: `${idx * 0.1}s` }}
             >
               {link.name}
             </a>
           ))}
            <a 
             href={`https://wa.me/${COMPANY_INFO.whatsapp}`}
-            className="bg-jc-gold text-jc-navy text-center py-3 rounded-lg font-bold mt-2 shadow-lg"
+            className="bg-jc-gold text-jc-navy text-center py-4 rounded-xl font-black text-lg mt-4 shadow-lg active:scale-95 transition-transform flex items-center justify-center gap-2 animate-fadeInUp"
+            style={{ animationDelay: '0.6s' }}
           >
-            Falar no WhatsApp
+            <i className="fab fa-whatsapp"></i> Falar no WhatsApp
           </a>
         </div>
       </div>

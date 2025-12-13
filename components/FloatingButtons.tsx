@@ -24,10 +24,11 @@ const FloatingButtons: React.FC = () => {
     });
   };
 
-  const baseClasses = "w-[60px] h-[60px] rounded-full flex items-center justify-center text-white text-2xl shadow-[0_4px_15px_rgba(0,0,0,0.3)] hover:scale-110 hover:shadow-[0_6px_25px_rgba(255,200,0,0.6)] transition-all duration-300 cursor-pointer border-2 border-white/30 z-[9999]";
+  // Base classes with responsive sizing (smaller on mobile)
+  const baseClasses = "w-[50px] h-[50px] md:w-[60px] md:h-[60px] rounded-full flex items-center justify-center text-white text-xl md:text-2xl shadow-[0_4px_15px_rgba(0,0,0,0.3)] hover:scale-110 hover:shadow-[0_6px_25px_rgba(255,200,0,0.6)] transition-all duration-300 cursor-pointer border-2 border-white/30 z-[9999]";
 
   return (
-    <div className="fixed right-5 bottom-5 z-[9999] flex flex-col gap-3">
+    <div className="fixed right-4 bottom-4 md:right-5 md:bottom-5 z-[9999] flex flex-col gap-3">
       {/* WhatsApp - Green Gradient */}
       <a 
         href={`https://wa.me/${COMPANY_INFO.whatsapp}`} 
