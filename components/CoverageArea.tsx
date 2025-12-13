@@ -60,6 +60,97 @@ const CoverageArea: React.FC = () => {
              📏 Raio de atendimento: 200 km a partir de Barracão-PR
           </div>
         </div>
+
+        {/* International Section - Argentina */}
+        <div id="argentina" className="mt-16 bg-gradient-to-br from-[#e8f4f8] to-[#d4e9f2] rounded-3xl p-8 md:p-12 border-4 border-jc-argentina relative overflow-hidden shadow-2xl">
+            {/* Background Decor */}
+            <div className="absolute -top-12 -right-12 text-[200px] opacity-5 rotate-[-15deg] pointer-events-none select-none">
+                🌎
+            </div>
+
+            <div className="text-center mb-10 relative z-10">
+                <h3 className="text-jc-navy font-black text-3xl md:text-4xl mb-2 text-shadow-sm">
+                    🌎 Atendimento Internacional
+                </h3>
+                <p className="text-jc-argentinaDark font-bold text-lg">
+                    Expandimos nossas fronteiras para levar climatização de qualidade à Argentina!
+                </p>
+            </div>
+
+            {/* Flag Animation */}
+            <div className="flex justify-center items-center gap-6 mb-10 text-6xl">
+                <div className="animate-wave">🇧🇷</div>
+                <div className="text-4xl animate-fly">✈️</div>
+                <div className="animate-wave [animation-delay:0.5s]">🇦🇷</div>
+            </div>
+
+            <div className="bg-white rounded-3xl p-8 md:p-10 shadow-xl">
+                 <h4 className="text-jc-navy font-bold text-2xl text-center mb-8 pb-4 border-b-4 border-jc-argentina">
+                    🇦🇷 Argentina - Província de Misiones
+                 </h4>
+
+                 <div className="bg-gradient-argentina text-white p-8 md:p-10 rounded-3xl text-center shadow-xl mb-10 border-4 border-jc-gold relative overflow-hidden group hover:scale-[1.02] transition-transform duration-300">
+                    <div className="absolute -top-6 -right-6 text-[120px] opacity-10 pointer-events-none select-none">🇦🇷</div>
+                    
+                    <div className="text-6xl mb-6 animate-bounce-slow">🏛️</div>
+                    <h3 className="text-3xl md:text-4xl font-black mb-4">Bernardo de Irigoyen</h3>
+                    
+                    <span className="inline-block bg-jc-gold text-jc-navy px-6 py-2 rounded-full font-bold text-sm mb-6 shadow-md">
+                        ARGENTINA
+                    </span>
+                    
+                    <div className="space-y-2 text-lg">
+                        <p>📍 Misiones, Argentina</p>
+                        <p>🚗 15 km de Barracão (fronteira)</p>
+                        <p>🕐 Atendimento rápido</p>
+                        <p className="font-bold text-jc-gold">💬 Atendimento em Português e Espanhol</p>
+                    </div>
+
+                    <a href="/ar-condicionado-bernardo-irigoyen" className="inline-block bg-white text-jc-argentinaDark px-8 py-4 rounded-full font-bold text-lg mt-8 shadow-lg hover:bg-jc-gold hover:text-jc-navy hover:-translate-y-1 transition-all duration-300">
+                        VER MAIS INFORMAÇÕES
+                    </a>
+                 </div>
+
+                 <div className="bg-gray-50 p-8 rounded-2xl border-l-8 border-jc-argentina mb-10">
+                    <h5 className="text-jc-navy font-bold text-xl mb-6">✨ Diferenciais do Atendimento Internacional:</h5>
+                    <ul className="space-y-4">
+                        {[
+                            {icon: '🗣️', label: 'Atendimento Bilíngue:', text: 'Português e Espanhol'},
+                            {icon: '⚡', label: 'Equipamentos Compatíveis:', text: '220V padrão argentino'},
+                            {icon: '📋', label: 'Documentação:', text: 'Assistência com importação quando necessário'},
+                            {icon: '🚗', label: 'Proximidade:', text: 'Apenas 15km da nossa sede'},
+                            {icon: '💰', label: 'Pagamento Flexível:', text: 'Real (BRL) ou Peso Argentino (ARS)'},
+                            {icon: '🔧', label: 'Assistência Rápida:', text: 'Técnicos especializados'},
+                            {icon: '🏆', label: 'Garantia Internacional:', text: 'Mesma qualidade, sem fronteiras'}
+                        ].map((item, idx) => (
+                            <li key={idx} className="flex items-start gap-3 text-gray-700 pb-2 border-b border-gray-200 last:border-0">
+                                <span className="text-xl">{item.icon}</span>
+                                <span><strong>{item.label}</strong> {item.text}</span>
+                            </li>
+                        ))}
+                    </ul>
+                 </div>
+
+                 <div className="bg-gradient-to-br from-jc-navy to-[#0f1729] text-white p-8 rounded-2xl text-center">
+                    <p className="text-xl font-bold mb-2">
+                        ¿Necesita aire acondicionado en Bernardo de Irigoyen?
+                    </p>
+                    <p className="text-jc-gold italic mb-8">
+                        Precisa de ar condicionado em Bernardo de Irigoyen?
+                    </p>
+                    
+                    <div className="flex flex-col md:flex-row justify-center gap-4">
+                         <a href="https://wa.me/5549991333133?text=Hola! Me gustaría un presupuesto para Bernardo de Irigoyen" target="_blank" className="bg-gradient-to-r from-[#25D366] to-[#128C7E] text-white px-8 py-4 rounded-full font-bold shadow-lg hover:shadow-[0_0_20px_rgba(37,211,102,0.6)] hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2">
+                            <i className="fab fa-whatsapp text-xl"></i> WHATSAPP (ESPAÑOL)
+                        </a>
+                         <a href="https://wa.me/5549991333133?text=Olá! Gostaria de um orçamento para Bernardo de Irigoyen" target="_blank" className="bg-gradient-to-r from-[#25D366] to-[#128C7E] text-white px-8 py-4 rounded-full font-bold shadow-lg hover:shadow-[0_0_20px_rgba(37,211,102,0.6)] hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2">
+                            <i className="fab fa-whatsapp text-xl"></i> WHATSAPP (PORTUGUÊS)
+                        </a>
+                    </div>
+                 </div>
+            </div>
+        </div>
+
       </div>
     </section>
   );

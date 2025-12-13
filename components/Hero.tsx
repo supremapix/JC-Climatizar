@@ -6,7 +6,9 @@ const PHRASES = [
   "Atendemos Todo o Sudoeste do Paraná",
   "Instalação e Manutenção de Ar Condicionado",
   "Cobertura de 200km - Atendimento Rápido",
-  "Especialistas em Climatização Há Mais de 10 Anos"
+  "Especialistas em Climatização Há Mais de 10 Anos",
+  "🌎 Atendemos na Argentina - Bernardo de Irigoyen",
+  "Serviço Internacional - Brasil e Argentina"
 ];
 
 const Hero: React.FC = () => {
@@ -57,9 +59,12 @@ const Hero: React.FC = () => {
       </div>
 
       <div className="container mx-auto px-4 z-10 text-center text-white pt-20">
-        <div className="mb-8 inline-block bg-jc-gold/10 backdrop-blur-sm border border-jc-gold/30 rounded-full px-6 py-2 shadow-[0_0_15px_rgba(255,215,0,0.2)]">
-            <span className="text-jc-gold font-bold uppercase tracking-widest text-sm">
+        <div className="flex flex-wrap justify-center gap-3 mb-8">
+            <span className="inline-block bg-jc-gold/10 backdrop-blur-sm border border-jc-gold/30 rounded-full px-6 py-2 shadow-[0_0_15px_rgba(255,215,0,0.2)] text-jc-gold font-bold uppercase tracking-widest text-sm">
                 <i className="fas fa-map-marker-alt mr-2"></i> Barracão e Sudoeste do PR
+            </span>
+             <span className="inline-block px-6 py-2 rounded-full shadow-[0_0_15px_rgba(116,172,223,0.4)] text-white uppercase tracking-widest text-sm badge-international">
+                🌎 Atendemos na Argentina
             </span>
         </div>
         

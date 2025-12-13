@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
             </div>
             <p className="text-gray-300 text-sm leading-relaxed border-l-2 border-jc-gold pl-4">
               Especialistas em climatização residencial e comercial. 
-              Qualidade, confiança e atendimento de excelência em todo o Sudoeste do Paraná.
+              Qualidade, confiança e atendimento de excelência em todo o Sudoeste do Paraná e Argentina.
             </p>
             <div className="flex gap-3 pt-2">
                {[
@@ -45,36 +45,12 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Column 2: Quick Services */}
+          {/* Column 2: Service Areas */}
           <div className="animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
-             <h4 className="text-jc-gold font-bold text-lg uppercase tracking-wider mb-6 pb-3 border-b-2 border-jc-gold/30 relative after:content-[''] after:absolute after:bottom-[-2px] after:left-0 after:w-12 after:h-[2px] after:bg-jc-gold">
-                Nossos Serviços
-             </h4>
-             <ul className="space-y-3">
-                 {[
-                     { name: 'Instalação de Ar Condicionado', href: '/#services' },
-                     { name: 'Manutenção Preventiva', href: '/#services' },
-                     { name: 'Limpeza e Higienização', href: '/#services' },
-                     { name: 'Assistência Técnica 24h', href: '/#contact' },
-                     { name: 'Projetos Personalizados', href: '/#contact' },
-                     { name: 'Orçamento Grátis', href: '/#contact' }
-                 ].map((item, idx) => (
-                     <li key={idx}>
-                         <a href={item.href} className="text-gray-300 hover:text-jc-gold text-sm transition-all duration-300 hover:pl-2 relative group flex items-center">
-                             <span className="w-0 overflow-hidden group-hover:w-3 transition-all duration-300 mr-0 group-hover:mr-2 opacity-0 group-hover:opacity-100 text-jc-gold">→</span>
-                             {item.name}
-                         </a>
-                     </li>
-                 ))}
-             </ul>
-          </div>
-
-          {/* Column 3: Service Areas */}
-          <div className="animate-fadeInUp" style={{ animationDelay: '0.3s' }}>
             <h4 className="text-jc-gold font-bold text-lg uppercase tracking-wider mb-6 pb-3 border-b-2 border-jc-gold/30 relative after:content-[''] after:absolute after:bottom-[-2px] after:left-0 after:w-12 after:h-[2px] after:bg-jc-gold">
                 Onde Atendemos
              </h4>
-             <ul className="space-y-3">
+             <ul className="space-y-2">
                  {MAIN_CITIES.slice(0, 9).map((city, idx) => (
                      <li key={idx}>
                          <a href={`/ar-condicionado-${city.slug}`} className="text-gray-300 hover:text-jc-gold text-sm transition-all duration-300 hover:pl-2 flex items-center group">
@@ -87,6 +63,31 @@ const Footer: React.FC = () => {
                     <a href="/#coverage" className="text-jc-gold font-bold text-sm hover:underline">→ Ver Todas as Cidades (200km)</a>
                  </li>
              </ul>
+          </div>
+
+          {/* Column 3: Argentina (NEW) */}
+          <div className="animate-fadeInUp" style={{ animationDelay: '0.3s' }}>
+             <div className="bg-jc-argentina/10 p-5 rounded-xl border-2 border-jc-argentina">
+                 <h4 className="text-jc-argentina font-bold text-lg uppercase tracking-wider mb-4 pb-2 border-b border-jc-argentina/30">
+                    🇦🇷 Argentina
+                 </h4>
+                 <ul className="space-y-3">
+                    <li>
+                        <a href="/ar-condicionado-bernardo-irigoyen" className="text-white hover:text-jc-argentina text-sm font-bold transition-colors flex items-center gap-2">
+                            <i className="fas fa-arrow-right text-jc-argentina"></i> Bernardo de Irigoyen
+                        </a>
+                    </li>
+                    <li className="text-jc-argentina text-sm flex items-center gap-2">
+                         <i className="fas fa-globe-americas"></i> Atendimento Bilíngue
+                    </li>
+                    <li className="text-jc-argentina text-sm flex items-center gap-2">
+                         <i className="fas fa-truck"></i> 15km da fronteira
+                    </li>
+                    <li className="text-jc-argentina text-sm flex items-center gap-2">
+                         <i className="fas fa-comments"></i> Español / Português
+                    </li>
+                 </ul>
+             </div>
           </div>
 
           {/* Column 4: Contact Info */}
@@ -119,15 +120,6 @@ const Footer: React.FC = () => {
                      <span className="font-bold text-jc-gold">Atendemos em 200km de raio</span>
                  </li>
              </ul>
-             
-             <div className="bg-jc-gold/5 border-l-4 border-jc-gold p-4 rounded-r-lg hover:bg-jc-gold/10 transition-colors">
-                 <h5 className="text-jc-gold font-bold text-sm mb-2 flex items-center gap-2">
-                     <i className="fas fa-clock"></i> Horário de Atendimento
-                 </h5>
-                 <p className="text-xs text-gray-400 mb-1">Segunda a Sexta: 8h às 18h</p>
-                 <p className="text-xs text-gray-400 mb-1">Finais de Semana: Fechado</p>
-                 <p className="text-xs text-jc-gold font-bold animate-pulse mt-2 pt-2 border-t border-jc-gold/20">🚨 Assistência 24h para Emergências</p>
-             </div>
           </div>
 
         </div>

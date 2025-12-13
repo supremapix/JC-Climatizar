@@ -18,6 +18,7 @@ export const NAVIGATION_LINKS = [
   { name: 'Início', href: '/' },
   { name: 'Serviços', href: '/#services' },
   { name: 'Cidades Atendidas', href: '/#coverage' },
+  { name: '🇦🇷 Argentina', href: '/#argentina' },
   { name: 'Sobre', href: '/#about' },
   { name: 'Contato', href: '/#contact' },
 ];

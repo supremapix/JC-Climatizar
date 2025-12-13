@@ -8,6 +8,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import FloatingButtons from './components/FloatingButtons';
 import CityPage from './components/CityPage';
+import ArgentinaCityPage from './components/ArgentinaCityPage';
 
 const App: React.FC = () => {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
@@ -30,8 +31,22 @@ const App: React.FC = () => {
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
+  // Route for Argentina Page
+  if (currentPath === '/ar-condicionado-bernardo-irigoyen') {
+      return (
+        <div className="min-h-screen bg-gray-50 text-gray-800 font-sans selection:bg-jc-gold selection:text-jc-navy">
+            <Header />
+            <main>
+                <ArgentinaCityPage />
+            </main>
+            <Footer />
+            <FloatingButtons />
+        </div>
+      );
+  }
+
   // Simple Client-Side Router logic
-  // If path starts with /ar-condicionado-, render CityPage
+  // If path starts with /ar-condicionado-, render CityPage (for Brazil)
   if (currentPath.startsWith('/ar-condicionado-')) {
     const slug = currentPath.replace('/ar-condicionado-', '');
     return (
