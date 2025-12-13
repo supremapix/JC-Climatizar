@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { COMPANY_INFO, MAIN_CITIES } from '../constants';
+import { COMPANY_INFO, ALL_CITIES } from '../constants';
 
 interface CityPageProps {
   slug: string;
@@ -7,10 +7,12 @@ interface CityPageProps {
 
 const CityPage: React.FC<CityPageProps> = ({ slug }) => {
   // 1. Determine City Name
-  // Check if it's a main city (for precise casing) or format from slug
-  const mainCity = MAIN_CITIES.find(c => c.slug === slug);
-  const cityName = mainCity 
-    ? mainCity.name 
+  // Lookup in the unified city list to find the correct display name with accents
+  const cityData = ALL_CITIES.find(c => c.slug === slug);
+  
+  // Fallback if not found in list (e.g. url typed manually but not in constants)
+  const cityName = cityData 
+    ? cityData.name 
     : slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 
   // 2. SEO & Meta Tags Update

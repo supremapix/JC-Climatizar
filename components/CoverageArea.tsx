@@ -1,7 +1,10 @@
 import React from 'react';
-import { MAIN_CITIES, EXTRA_CITIES } from '../constants';
+import { MAIN_CITIES, ALL_CITIES, slugify } from '../constants';
 
 const CoverageArea: React.FC = () => {
+  // Filter out main cities to get only extra cities for the list
+  const extraCitiesList = ALL_CITIES.filter(c => c.type === 'extra');
+
   return (
     <section id="coverage" className="py-20 bg-gradient-to-br from-gray-50 to-gray-200">
       <div className="container mx-auto px-4">
@@ -53,9 +56,20 @@ const CoverageArea: React.FC = () => {
           <h4 className="text-jc-navy font-bold text-2xl mb-6 flex items-center gap-2">
             <i className="fas fa-map-marked-alt text-jc-gold"></i> Também atendemos:
           </h4>
-          <p className="text-gray-600 leading-loose text-lg text-justify md:text-left">
-            {EXTRA_CITIES.join(' • ')} e mais!
-          </p>
+          
+          <div className="flex flex-wrap gap-3">
+            {extraCitiesList.map((city, idx) => (
+               <a 
+                 key={idx}
+                 href={`/#/ar-condicionado-${city.slug}`}
+                 className="inline-block bg-gray-100 hover:bg-jc-navy hover:text-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 border border-gray-200 hover:border-jc-gold"
+               >
+                 📍 {city.name}
+               </a>
+            ))}
+            <span className="inline-block px-4 py-2 text-gray-500 text-sm italic">e toda a região!</span>
+          </div>
+
           <div className="mt-8 bg-gradient-to-r from-jc-gold to-jc-goldDark text-jc-navy p-6 rounded-xl text-center font-bold text-lg shadow-lg">
              📏 Raio de atendimento: 200 km a partir de Barracão-PR
           </div>

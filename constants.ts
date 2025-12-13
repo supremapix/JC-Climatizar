@@ -65,3 +65,27 @@ export const EXTRA_CITIES = [
   "Verê", "Enéas Marques", "Flor da Serra do Sul", "Manfrinópolis", 
   "Pérola d'Oeste", "Santa Izabel do Oeste", "Boa Esperança do Iguaçu", "Cruzeiro do Iguaçu"
 ];
+
+// Utility to create URL-friendly slugs
+export const slugify = (text: string) => {
+  return text
+    .toString()
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/[^\w\-]+/g, '')
+    .replace(/\-\-+/g, '-')
+    .replace(/^-+/, '')
+    .replace(/-+$/, '');
+};
+
+// Unified list of all cities with slugs
+export const ALL_CITIES = [
+  ...MAIN_CITIES,
+  ...EXTRA_CITIES.map(city => ({
+    name: city,
+    slug: slugify(city),
+    type: 'extra'
+  }))
+];
