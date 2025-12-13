@@ -74,12 +74,12 @@ const About: React.FC = () => {
             
             {/* Animated Stats */}
             <div ref={statsRef} className="grid grid-cols-2 gap-6 mb-10">
-              <div className="bg-gray-50 p-4 rounded-xl border-l-4 border-jc-gold shadow-sm">
-                 <span className="stat-number text-3xl font-black text-jc-navy block mb-1" data-target="1500">0</span>
+              <div className="bg-gray-50 p-4 rounded-xl border-l-4 border-jc-gold shadow-sm group hover:bg-white hover:shadow-md transition-all">
+                 <span className="stat-number text-3xl font-black text-jc-navy block mb-1 group-hover:text-jc-goldDark transition-colors" data-target="1500">0</span>
                  <span className="text-sm text-gray-500 font-medium uppercase">Projetos Entregues</span>
               </div>
-              <div className="bg-gray-50 p-4 rounded-xl border-l-4 border-jc-gold shadow-sm">
-                 <span className="stat-number text-3xl font-black text-jc-navy block mb-1" data-target="98">0</span>
+              <div className="bg-gray-50 p-4 rounded-xl border-l-4 border-jc-gold shadow-sm group hover:bg-white hover:shadow-md transition-all">
+                 <span className="stat-number text-3xl font-black text-jc-navy block mb-1 group-hover:text-jc-goldDark transition-colors" data-target="98">0</span>
                  <span className="text-sm text-gray-500 font-medium uppercase">% Satisfação</span>
               </div>
             </div>

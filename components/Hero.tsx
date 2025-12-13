@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { COMPANY_INFO } from '../constants';
 
 const PHRASES = [
-  "Climatização Profissional em Curitiba",
-  "Conforto Térmico para Sua Casa ou Empresa",
+  "Climatização Profissional em Barracão-PR",
+  "Atendemos Todo o Sudoeste do Paraná",
   "Instalação e Manutenção de Ar Condicionado",
-  "Atendimento 24 Horas em Curitiba e Região",
+  "Cobertura de 200km - Atendimento Rápido",
   "Especialistas em Climatização Há Mais de 10 Anos"
 ];
 
@@ -28,6 +28,7 @@ const Hero: React.FC = () => {
       }
 
       if (!isDeleting && text === currentPhrase) {
+        // Pause before deleting
         setTimeout(() => setIsDeleting(true), 2000);
       } else if (isDeleting && text === '') {
         setIsDeleting(false);
@@ -43,9 +44,7 @@ const Hero: React.FC = () => {
     <section id="hero" className="relative h-screen min-h-[650px] flex items-center justify-center bg-[#0f1729] overflow-hidden">
       
       {/* Animated Particle Background */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="w-full h-full bg-[radial-gradient(2px_2px_at_20%_30%,rgba(255,215,0,0.3),transparent),radial-gradient(2px_2px_at_60%_70%,rgba(255,215,0,0.2),transparent)] bg-[length:200%_200%] animate-float"></div>
-      </div>
+      <div className="absolute inset-0 z-0 pointer-events-none hero-particles"></div>
 
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
@@ -60,40 +59,40 @@ const Hero: React.FC = () => {
       <div className="container mx-auto px-4 z-10 text-center text-white pt-20">
         <div className="mb-8 inline-block bg-jc-gold/10 backdrop-blur-sm border border-jc-gold/30 rounded-full px-6 py-2 shadow-[0_0_15px_rgba(255,215,0,0.2)]">
             <span className="text-jc-gold font-bold uppercase tracking-widest text-sm">
-                <i className="fas fa-star mr-2"></i> Qualidade Premium
+                <i className="fas fa-map-marker-alt mr-2"></i> Barracão e Sudoeste do PR
             </span>
         </div>
         
-        {/* Typewriter Text Area - Fixed Height to prevent jumping */}
-        <div className="min-h-[120px] md:min-h-[160px] flex items-center justify-center mb-6">
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-black leading-tight drop-shadow-lg max-w-4xl mx-auto">
-              <span className="typewriter-cursor text-jc-gold text-shadow-sm">
+        {/* Typewriter Text Area */}
+        <div className="min-h-[140px] md:min-h-[180px] flex items-center justify-center mb-4">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-black leading-tight drop-shadow-lg max-w-5xl mx-auto">
+              <span className="typewriter-text text-jc-gold text-shadow-sm">
                 {text}
               </span>
             </h1>
         </div>
         
         <p className="text-lg md:text-xl text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed font-light">
-          Garantia de conforto e ar puro para sua família. Técnicos certificados e atendimento rápido.
+          Especialistas em Ar Condicionado na Região de Barracão. Atendimento no Sudoeste do Paraná com raio de 200km.
         </p>
         
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
           <a 
             href={`https://wa.me/${COMPANY_INFO.whatsapp}`}
-            className="group relative px-10 py-5 bg-gradient-to-r from-jc-gold to-jc-goldDark text-jc-navy font-bold text-lg rounded-full transition-all transform hover:-translate-y-1 overflow-hidden animate-pulse-slow shadow-[0_10px_30px_rgba(255,215,0,0.4)] hover:shadow-[0_15px_40px_rgba(255,215,0,0.6)]"
+            className="group relative px-10 py-5 bg-gradient-to-r from-jc-gold to-jc-goldDark text-jc-navy font-bold text-lg rounded-full transition-all transform hover:-translate-y-1 overflow-hidden animate-pulse-slow"
           >
              <span className="relative z-10 flex items-center gap-2 uppercase tracking-wide">
                 <i className="fab fa-whatsapp text-2xl"></i>
                 Solicitar Orçamento
             </span>
-            <div className="absolute inset-0 bg-white/40 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out"></div>
+            <div className="absolute inset-0 bg-white/50 rounded-full transform scale-0 group-hover:scale-150 transition-transform duration-500 opacity-30"></div>
           </a>
           
           <a 
-            href="#services"
+            href="#coverage"
             className="px-8 py-4 bg-transparent border-2 border-white/20 hover:border-jc-gold text-white hover:text-jc-gold font-bold text-lg rounded-full transition-all backdrop-blur-sm hover:bg-white/5"
           >
-            Nossos Serviços
+            Ver Cidades Atendidas
           </a>
         </div>
       </div>

@@ -6,20 +6,24 @@ const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [isVisible, setIsVisible] = useState(true);
+  const [isHidden, setIsHidden] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       
-      // Background and shadow logic
-      setIsScrolled(currentScrollY > 50);
+      // Style change on scroll
+      if (currentScrollY > 100) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
 
       // Hide/Show logic
       if (currentScrollY > lastScrollY && currentScrollY > 500) {
-        setIsVisible(false);
+        setIsHidden(true);
       } else {
-        setIsVisible(true);
+        setIsHidden(false);
       }
       
       setLastScrollY(currentScrollY);
@@ -32,12 +36,12 @@ const Header: React.FC = () => {
   return (
     <header 
       className={`fixed w-full z-50 transition-all duration-300 animate-slideDown ${
-        isScrolled ? 'bg-jc-navy shadow-[0_5px_30px_rgba(0,0,0,0.3)] py-2' : 'bg-jc-navy/95 py-4 backdrop-blur-md'
-      } ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}
+        isScrolled ? 'bg-jc-navy shadow-[0_5px_30px_rgba(0,0,0,0.3)]' : 'bg-jc-navy/95 backdrop-blur-md'
+      } ${isHidden ? '-translate-y-full' : 'translate-y-0'}`}
     >
-      <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
+      <div className={`container mx-auto px-4 md:px-8 flex justify-between items-center transition-all duration-300 ${isScrolled ? 'py-2' : 'py-4'}`}>
         
-        <a href="#" className="flex-shrink-0 group">
+        <a href="/" className="flex-shrink-0 group animate-fadeInScale">
           <Logo variant="light" className="transition-transform duration-300 group-hover:scale-105 group-hover:rotate-2" />
         </a>
 

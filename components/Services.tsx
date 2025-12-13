@@ -17,7 +17,7 @@ const Services: React.FC = () => {
           }
         });
       },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+      { threshold: 0.2, rootMargin: '0px 0px -50px 0px' }
     );
 
     cardsRef.current.forEach((card) => {
@@ -45,13 +45,13 @@ const Services: React.FC = () => {
             <div 
               key={index}
               ref={el => cardsRef.current[index] = el}
-              className="bg-white p-8 rounded-2xl shadow-xl transition-all duration-500 ease-out opacity-0 translate-y-12 relative overflow-hidden group hover:-translate-y-3 hover:rotate-1 preserve-3d border border-transparent hover:border-jc-gold/30 hover:shadow-[0_20px_40px_rgba(26,40,68,0.15)]"
+              className="bg-white p-8 rounded-2xl shadow-xl transition-all duration-500 ease-out opacity-0 translate-y-12 relative overflow-hidden group preserve-3d service-card-hover border border-transparent cursor-pointer"
             >
               {/* Shining Effect */}
-              <div className="absolute top-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-jc-gold/10 to-transparent transition-all duration-700 group-hover:left-full pointer-events-none z-10"></div>
+              <div className="absolute top-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-jc-gold/20 to-transparent transition-all duration-500 group-hover:left-full pointer-events-none z-10"></div>
 
               <div className="relative z-20">
-                <div className="w-20 h-20 bg-gradient-to-br from-jc-gold to-jc-goldDark rounded-full flex items-center justify-center text-jc-navy text-3xl mb-8 mx-auto shadow-lg transition-transform duration-500 group-hover:rotate-[360deg] group-hover:scale-110">
+                <div className="service-icon w-20 h-20 bg-gradient-to-br from-jc-gold to-jc-goldDark rounded-full flex items-center justify-center text-jc-navy text-3xl mb-8 mx-auto shadow-lg transition-transform duration-500">
                   <i className={`fas ${service.icon}`}></i>
                 </div>
                 
@@ -62,7 +62,7 @@ const Services: React.FC = () => {
                 </p>
 
                 <div className="text-center">
-                    <button className="px-6 py-2 rounded-full border-2 border-jc-navy text-jc-navy font-semibold text-sm transition-all duration-300 relative overflow-hidden group-hover:border-jc-gold group-hover:text-jc-navy group-hover:scale-105">
+                    <button className="px-6 py-2 rounded-full border-2 border-jc-navy text-jc-navy font-semibold text-sm transition-all duration-300 relative overflow-hidden btn-more group-hover:border-jc-gold group-hover:text-jc-navy group-hover:scale-105">
                         <span className="relative z-10">Saiba Mais</span>
                         <div className="absolute inset-0 bg-jc-gold transform -translate-x-full transition-transform duration-300 group-hover:translate-x-0 -z-0"></div>
                     </button>
