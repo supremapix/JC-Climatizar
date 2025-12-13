@@ -20,10 +20,10 @@ const Hero: React.FC = () => {
     const currentPhrase = PHRASES[phraseIndex];
     let timer: ReturnType<typeof setTimeout>;
 
-    // Configuration
-    const typeSpeed = 80;    // Speed per character when typing
-    const deleteSpeed = 40;  // Speed per character when deleting
-    const pauseTime = 2000;  // Pause after finishing typing
+    // Configuration - Adjusted for smoother feel
+    const typeSpeed = 50;    // Faster typing (was 80)
+    const deleteSpeed = 25;  // Faster deleting (was 40)
+    const pauseTime = 2500;  // Longer pause to read (was 2000)
 
     if (isDeleting) {
       if (text === '') {
@@ -60,13 +60,32 @@ const Hero: React.FC = () => {
       {/* Animated Particle Background */}
       <div className="absolute inset-0 z-0 pointer-events-none hero-particles"></div>
 
-      {/* Background Image with Overlay */}
+      {/* Background Image with Overlay - Optimized with WebP, Responsive Sizes and Lazy Loading */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2069&auto=format&fit=crop" 
-          alt="Técnico de ar condicionado" 
-          className="w-full h-full object-cover object-center opacity-20"
-        />
+        <picture>
+            {/* Mobile Image - WebP, reduced width */}
+            <source 
+                media="(max-width: 768px)" 
+                srcSet="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=70&w=800&auto=format&fit=crop&fm=webp" 
+                type="image/webp" 
+            />
+            {/* Desktop Image - WebP, Full HD width */}
+            <source 
+                media="(min-width: 769px)" 
+                srcSet="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=75&w=1920&auto=format&fit=crop&fm=webp" 
+                type="image/webp" 
+            />
+            {/* Fallback Image */}
+            <img 
+              src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=75&w=1920&auto=format&fit=crop" 
+              alt="Técnico de ar condicionado profissional" 
+              className="w-full h-full object-cover object-center opacity-20 transition-opacity duration-700"
+              loading="lazy"
+              decoding="async"
+              width="1920"
+              height="1080"
+            />
+        </picture>
         <div className="absolute inset-0 bg-gradient-to-br from-jc-navy via-jc-navy/95 to-[#0f1729]/90"></div>
       </div>
 
@@ -81,11 +100,13 @@ const Hero: React.FC = () => {
         </div>
         
         {/* Typewriter Text Area */}
-        {/* Adjusted min-height to prevent layout shifts on mobile */}
-        <div className="min-h-[120px] sm:min-h-[140px] md:min-h-[180px] flex items-center justify-center mb-4">
+        {/* Fixed height to prevent layout shifts. Flex center to align text in the middle of the box. */}
+        <div className="h-[140px] sm:h-[160px] md:h-[200px] flex items-center justify-center mb-4">
             <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black leading-tight drop-shadow-lg max-w-5xl mx-auto px-2">
               <span className="typewriter-text text-jc-gold text-shadow-sm min-h-[1.2em] inline-block">
-                {text || '\u00A0'}
+                {text}
+                {/* Non-breaking space to keep cursor height when text is empty is handled by min-h on span, 
+                    but adding a space or pipe can help if needed. CSS border handles cursor. */}
               </span>
             </h1>
         </div>
