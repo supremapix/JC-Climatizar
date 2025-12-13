@@ -10,6 +10,7 @@ import FloatingButtons from './components/FloatingButtons';
 import CityPage from './components/CityPage';
 import ArgentinaCityPage from './components/ArgentinaCityPage';
 import ServicesPage from './components/ServicesPage';
+import ServiceDetailPage from './components/ServiceDetailPage';
 
 const App: React.FC = () => {
   // Use hash for routing to avoid 404s on static hosting without rewrite rules
@@ -33,7 +34,23 @@ const App: React.FC = () => {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
-  // 1. Services Page Route (NEW)
+  // 1. Specific Service Detail Route (e.g., #/servicos/instalacao)
+  // This must come BEFORE #/servicos check to match correctly
+  if (currentHash.startsWith('#/servicos/')) {
+    const serviceId = currentHash.replace('#/servicos/', '');
+    return (
+      <div className="min-h-screen bg-gray-50 text-gray-800 font-sans selection:bg-jc-gold selection:text-jc-navy">
+        <Header />
+        <main>
+          <ServiceDetailPage id={serviceId} />
+        </main>
+        <Footer />
+        <FloatingButtons />
+      </div>
+    );
+  }
+
+  // 2. Services Index Page Route
   if (currentHash === '#/servicos') {
     return (
       <div className="min-h-screen bg-gray-50 text-gray-800 font-sans selection:bg-jc-gold selection:text-jc-navy">
@@ -47,7 +64,7 @@ const App: React.FC = () => {
     );
   }
 
-  // 2. Argentina Page Route
+  // 3. Argentina Page Route
   if (currentHash === '#/ar-condicionado-bernardo-irigoyen') {
       return (
         <div className="min-h-screen bg-gray-50 text-gray-800 font-sans selection:bg-jc-gold selection:text-jc-navy">
@@ -61,7 +78,7 @@ const App: React.FC = () => {
       );
   }
 
-  // 3. City Pages Route (e.g. #/ar-condicionado-barracao)
+  // 4. City Pages Route (e.g. #/ar-condicionado-barracao)
   if (currentHash.startsWith('#/ar-condicionado-')) {
     const slug = currentHash.replace('#/ar-condicionado-', '');
     return (
@@ -76,7 +93,7 @@ const App: React.FC = () => {
     );
   }
 
-  // 4. Default / Home Route
+  // 5. Default / Home Route
   // Handles empty hash, #, or anchor links like #services, #contact
   return (
     <div className="min-h-screen bg-gray-50 text-gray-800 font-sans selection:bg-jc-gold selection:text-jc-navy">

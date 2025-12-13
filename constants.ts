@@ -50,6 +50,86 @@ export const SERVICES_LIST = [
   }
 ];
 
+export const DETAILED_SERVICES = [
+  {
+    id: "instalacao",
+    title: "Instalação de Ar Condicionado",
+    subtitle: "Garantia, Segurança e Eficiência Energética",
+    icon: "fa-screwdriver-wrench",
+    heroImage: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=2069&auto=format&fit=crop",
+    description: "A instalação é a etapa mais importante para a vida útil do seu ar condicionado. Uma instalação mal feita pode gerar vazamentos de gás, alto consumo de energia e quebra prematura do compressor.",
+    longDescription: "Nossa equipe segue rigorosamente os manuais de cada fabricante (LG, Samsung, Gree, Daikin, Midea, etc.), utilizando ferramentas de precisão como bomba de vácuo, manômetros digitais e tubulação de cobre de alta qualidade. Não arrisque seu investimento com instalações fora do padrão.",
+    features: [
+      "Instalação de Split Hi-Wall, Cassete e Piso Teto",
+      "Tubulação 100% Cobre (não usamos alumínio)",
+      "Isolamento térmico blindado individual",
+      "Vácuo no sistema (obrigatório para garantia)",
+      "Teste de estanqueidade com Nitrogênio",
+      "Suportes reforçados e nivelamento a laser",
+      "Acabamento estético impecável"
+    ],
+    ctaText: "Agendar Instalação"
+  },
+  {
+    id: "manutencao",
+    title: "Manutenção Preventiva",
+    subtitle: "Aumente a vida útil do seu aparelho e economize energia",
+    icon: "fa-clipboard-check",
+    heroImage: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?q=80&w=2070&auto=format&fit=crop",
+    description: "A falta de manutenção é a principal causa de quebra de ar condicionado. A preventiva detecta falhas antes que elas parem seu equipamento.",
+    longDescription: "Além de garantir o conforto térmico, a manutenção preventiva reduz o consumo de energia em até 30%. Para empresas, oferecemos o PMOC (Plano de Manutenção, Operação e Controle), exigido pela Lei 13.589/2018, garantindo a qualidade do ar e a regularidade fiscal do seu negócio.",
+    features: [
+      "Verificação da pressão do gás refrigerante",
+      "Medição de corrente e tensão elétrica",
+      "Lubrificação de motores e rolamentos",
+      "Verificação de drenos e bandejas",
+      "Reaperto de conexões elétricas",
+      "Testes de rendimento térmico",
+      "Emissão de laudos técnicos e ART"
+    ],
+    ctaText: "Solicitar Plano de Manutenção"
+  },
+  {
+    id: "limpeza",
+    title: "Limpeza e Higienização",
+    subtitle: "Ar puro e saudável livre de fungos e bactérias",
+    icon: "fa-pump-soap",
+    heroImage: "https://plus.unsplash.com/premium_photo-1663040182602-06927909dc40?q=80&w=2070&auto=format&fit=crop",
+    description: "Você sabia que o ar condicionado sujo pode acumular 10x mais bactérias que um banheiro público? Proteja a saúde da sua família.",
+    longDescription: "Nosso processo de higienização é profundo. Não limpamos apenas o filtro; desmontamos a carenagem para acessar a turbina e a serpentina, onde a sujeira realmente se esconde. Utilizamos produtos bactericidas e fungicidas certificados pela ANVISA, eliminando odores e prevenindo doenças respiratórias.",
+    features: [
+      "Desmontagem completa da carenagem",
+      "Aplicação de produto bactericida profissional",
+      "Limpeza da turbina (ventilador interno)",
+      "Limpeza da serpentina (evaporadora)",
+      "Desobstrução do sistema de dreno",
+      "Higienização de filtros e aletas",
+      "Eliminação de mau cheiro"
+    ],
+    ctaText: "Agendar Higienização"
+  },
+  {
+    id: "infraestrutura",
+    title: "Infraestrutura para Obras",
+    subtitle: "Prepare sua obra para receber ar condicionado sem quebra-quebra",
+    icon: "fa-hard-hat",
+    heroImage: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2031&auto=format&fit=crop",
+    description: "Construindo ou reformando? A hora de pensar no ar condicionado é agora. Deixe tudo pronto para uma instalação futura perfeita.",
+    longDescription: "Realizamos o projeto e a execução da infraestrutura (pré-instalação) em obras residenciais e comerciais. Passamos as tubulações de cobre, cabos de comando e drenos dentro da parede, deixando apenas as caixas de espera visíveis. Isso garante estética, valoriza o imóvel e evita quebrar paredes depois da pintura pronta.",
+    features: [
+      "Cortes em alvenaria com precisão",
+      "Passagem de tubulação de cobre e cabos PP",
+      "Instalação de caixas de passagem polar",
+      "Drenos embutidos com teste de vazão",
+      "Pressurização das linhas com nitrogênio",
+      "Mapeamento das tubulações para evitar furos",
+      "Parceria com arquitetos e engenheiros"
+    ],
+    ctaText: "Cotar Infraestrutura"
+  }
+];
+
+
 export const MAIN_CITIES = [
   { name: "Barracão", slug: "barracao", type: "sede" },
   { name: "Bom Jesus do Sul", slug: "bom-jesus-do-sul" },
