@@ -1,23 +1,41 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { COMPANY_INFO, DETAILED_SERVICES } from '../constants';
 
 const ServicesPage: React.FC = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    if (sectionRef.current) {
+        const revealElements = sectionRef.current.querySelectorAll('.reveal');
+        revealElements.forEach(el => observer.observe(el));
+    }
+
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <div className="pt-20 bg-gray-50 min-h-screen">
+    <div className="pt-20 bg-gray-50 min-h-screen" ref={sectionRef}>
       {/* Hero Section */}
       <section className="relative bg-jc-navy text-white py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?q=80&w=2069&auto=format&fit=crop')] bg-cover bg-center opacity-10"></div>
+        {/* Background Image Optimization using CSS is tricky for lazy loading, keeping it as div bg but using optimized URL if possible */}
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?q=80&w=2069&auto=format&fit=crop&fm=webp')] bg-cover bg-center opacity-10"></div>
         <div className="absolute inset-0 bg-gradient-to-r from-jc-navy to-jc-navy/80"></div>
         
-        <div className="container mx-auto px-4 relative z-10 text-center">
+        <div className="container mx-auto px-4 relative z-10 text-center reveal">
             <h1 className="text-4xl md:text-6xl font-black mb-6">
                 Nossos <span className="text-jc-gold">Serviços</span>
             </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-light">
                 Clique em um serviço abaixo para ver todos os detalhes, preços e benefícios.
             </p>
         </div>
@@ -31,16 +49,31 @@ const ServicesPage: React.FC = () => {
                     <a 
                         href={`#/servicos/${service.id}`}
                         key={index} 
-                        className="group flex flex-col md:flex-row bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100"
+                        className="group flex flex-col md:flex-row bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 reveal"
                     >
-                        {/* Image Side */}
-                        <div className="md:w-2/5 h-64 md:h-auto overflow-hidden relative">
+                        {/* Image Side - Optimized */}
+                        <div className="md:w-2/5 h-64 md:h-auto overflow-hidden relative bg-gray-200">
                              <div className="absolute inset-0 bg-jc-navy/20 group-hover:bg-transparent transition-colors z-10"></div>
-                             <img 
-                                src={service.heroImage} 
-                                alt={service.title} 
-                                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-                             />
+                             <picture>
+                                 <source 
+                                    media="(max-width: 768px)" 
+                                    srcSet={`${service.heroImage}&fm=webp&w=400`} 
+                                    type="image/webp" 
+                                 />
+                                 <source 
+                                    media="(min-width: 769px)" 
+                                    srcSet={`${service.heroImage}&fm=webp&w=800`} 
+                                    type="image/webp" 
+                                 />
+                                 <img 
+                                    src={`${service.heroImage}&w=800`}
+                                    alt={service.title} 
+                                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                                    loading="lazy"
+                                    width="400"
+                                    height="300"
+                                 />
+                             </picture>
                              <div className="absolute bottom-4 left-4 z-20 bg-white/90 backdrop-blur-sm p-3 rounded-full text-jc-navy shadow-lg">
                                 <i className={`fas ${service.icon} text-xl`}></i>
                              </div>
@@ -51,7 +84,7 @@ const ServicesPage: React.FC = () => {
                             <h2 className="text-2xl font-black text-jc-navy mb-2 group-hover:text-jc-goldDark transition-colors">
                                 {service.title}
                             </h2>
-                            <p className="text-gray-600 mb-6 line-clamp-3">
+                            <p className="text-gray-600 mb-6 line-clamp-3 font-light leading-relaxed">
                                 {service.description}
                             </p>
                             
@@ -68,7 +101,7 @@ const ServicesPage: React.FC = () => {
       </section>
 
       {/* Commercial Projects Section */}
-      <section className="py-20 bg-[#1a2844] text-white relative overflow-hidden">
+      <section className="py-20 bg-[#1a2844] text-white relative overflow-hidden reveal">
           <div className="absolute top-0 right-0 w-96 h-96 bg-jc-gold rounded-full filter blur-[150px] opacity-10"></div>
           
           <div className="container mx-auto px-4 relative z-10 text-center">
@@ -77,7 +110,7 @@ const ServicesPage: React.FC = () => {
                       🏢 LINHA COMERCIAL E INDUSTRIAL
                   </div>
                   <h2 className="text-3xl md:text-5xl font-black mb-6">Projetos para Empresas</h2>
-                  <p className="text-xl text-gray-300 mb-10 leading-relaxed">
+                  <p className="text-xl text-gray-300 mb-10 leading-relaxed font-light">
                       Atendemos escritórios, lojas, mercados, indústrias e grandes empreendimentos. 
                       Oferecemos contratos de manutenção (PMOC) para garantir que sua empresa esteja 
                       em conformidade com a Lei 13.589/2018.

@@ -25,30 +25,43 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ id }) => {
     <div className="bg-gray-50 min-h-screen">
       {/* 1. HERO SECTION */}
       <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 bg-jc-navy text-white overflow-hidden">
-        {/* Background Image */}
+        {/* Background Image - Optimized */}
         <div className="absolute inset-0 z-0">
-          <img 
-            src={service.heroImage} 
-            alt={service.title} 
-            className="w-full h-full object-cover opacity-20 filter blur-sm transform scale-105"
-          />
+          <picture>
+             <source 
+                media="(max-width: 768px)" 
+                srcSet={`${service.heroImage}&fm=webp&w=800`} 
+                type="image/webp" 
+             />
+             <source 
+                media="(min-width: 769px)" 
+                srcSet={`${service.heroImage}&fm=webp&w=1920`} 
+                type="image/webp" 
+             />
+             <img 
+               src={`${service.heroImage}&w=1920`} 
+               alt={service.title} 
+               className="w-full h-full object-cover opacity-20 filter blur-sm transform scale-105"
+               loading="eager" // Hero image should load eagerly
+             />
+          </picture>
           <div className="absolute inset-0 bg-gradient-to-t from-jc-navy via-jc-navy/80 to-transparent"></div>
         </div>
 
         <div className="container mx-auto px-4 relative z-10 text-center">
-           <div className="inline-block p-4 rounded-full bg-white/10 backdrop-blur-md mb-6 border border-white/20 shadow-lg">
+           <div className="inline-block p-4 rounded-full bg-white/10 backdrop-blur-md mb-6 border border-white/20 shadow-lg animate-fadeInUp">
              <i className={`fas ${service.icon} text-3xl md:text-4xl text-jc-gold`}></i>
            </div>
            
-           <h1 className="text-4xl md:text-6xl font-black mb-4 leading-tight">
+           <h1 className="text-4xl md:text-6xl font-black mb-4 leading-tight animate-fadeInUp" style={{ animationDelay: '0.1s' }}>
              {service.title}
            </h1>
            
-           <p className="text-xl md:text-2xl text-gray-300 font-light max-w-3xl mx-auto">
+           <p className="text-xl md:text-2xl text-gray-300 font-light max-w-3xl mx-auto animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
              {service.subtitle}
            </p>
 
-           <div className="mt-10">
+           <div className="mt-10 animate-fadeInUp" style={{ animationDelay: '0.3s' }}>
               <a 
                 href="#details" 
                 className="inline-flex items-center gap-2 text-jc-gold font-bold uppercase tracking-widest hover:text-white transition-colors animate-bounce"
@@ -72,7 +85,7 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ id }) => {
                <p className="text-lg text-gray-700 leading-relaxed mb-6 font-medium">
                  {service.description}
                </p>
-               <p className="text-gray-600 leading-relaxed mb-8 text-base">
+               <p className="text-gray-600 leading-relaxed mb-8 text-base font-light">
                  {service.longDescription}
                </p>
 
@@ -84,7 +97,7 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ id }) => {
                    {service.features.map((feature, idx) => (
                      <li key={idx} className="flex items-start gap-3 text-gray-700">
                        <span className="w-2 h-2 rounded-full bg-jc-gold mt-2 shrink-0"></span>
-                       {feature}
+                       <span className="font-light">{feature}</span>
                      </li>
                    ))}
                  </ul>
@@ -94,12 +107,25 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ id }) => {
             {/* Right: CTA & Image Card */}
             <div className="lg:w-1/2 w-full sticky top-32">
                <div className="bg-white rounded-3xl overflow-hidden shadow-2xl group">
-                 <div className="relative h-64 overflow-hidden">
-                    <img 
-                      src={service.heroImage} 
-                      alt={service.title} 
-                      className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-                    />
+                 <div className="relative h-64 overflow-hidden bg-gray-200">
+                    <picture>
+                         <source 
+                            media="(max-width: 768px)" 
+                            srcSet={`${service.heroImage}&fm=webp&w=600`} 
+                            type="image/webp" 
+                         />
+                         <source 
+                            media="(min-width: 769px)" 
+                            srcSet={`${service.heroImage}&fm=webp&w=1000`} 
+                            type="image/webp" 
+                         />
+                        <img 
+                          src={`${service.heroImage}&w=1000`} 
+                          alt={service.title} 
+                          className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                          loading="lazy"
+                        />
+                    </picture>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     <div className="absolute bottom-6 left-6 text-white font-bold text-lg">
                       <i className="fas fa-certificate text-jc-gold mr-2"></i> Qualidade Garantida
@@ -108,7 +134,7 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ id }) => {
                  
                  <div className="p-8 md:p-10 text-center">
                     <h3 className="text-2xl font-black text-jc-navy mb-2">Precisa deste serviço?</h3>
-                    <p className="text-gray-500 mb-8">
+                    <p className="text-gray-500 mb-8 font-light">
                       Solicite um orçamento sem compromisso. Nossa equipe atende em todo o Sudoeste do Paraná.
                     </p>
 

@@ -11,6 +11,7 @@ import CityPage from './components/CityPage';
 import ArgentinaCityPage from './components/ArgentinaCityPage';
 import ServicesPage from './components/ServicesPage';
 import ServiceDetailPage from './components/ServiceDetailPage';
+import CookieBanner from './components/CookieBanner';
 
 const App: React.FC = () => {
   // Use hash for routing to avoid 404s on static hosting without rewrite rules
@@ -46,6 +47,7 @@ const App: React.FC = () => {
         </main>
         <Footer />
         <FloatingButtons />
+        <CookieBanner />
       </div>
     );
   }
@@ -60,6 +62,7 @@ const App: React.FC = () => {
         </main>
         <Footer />
         <FloatingButtons />
+        <CookieBanner />
       </div>
     );
   }
@@ -74,6 +77,7 @@ const App: React.FC = () => {
             </main>
             <Footer />
             <FloatingButtons />
+            <CookieBanner />
         </div>
       );
   }
@@ -89,6 +93,7 @@ const App: React.FC = () => {
         </main>
         <Footer />
         <FloatingButtons />
+        <CookieBanner />
       </div>
     );
   }
@@ -107,6 +112,7 @@ const App: React.FC = () => {
       </main>
       <Footer />
       <FloatingButtons />
+      <CookieBanner />
     </div>
   );
 };

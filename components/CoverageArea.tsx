@@ -1,14 +1,32 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { MAIN_CITIES, ALL_CITIES, slugify } from '../constants';
 
 const CoverageArea: React.FC = () => {
   // Filter out main cities to get only extra cities for the list
   const extraCitiesList = ALL_CITIES.filter(c => c.type === 'extra');
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    if (sectionRef.current) {
+        const revealElements = sectionRef.current.querySelectorAll('.reveal');
+        revealElements.forEach(el => observer.observe(el));
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section id="coverage" className="py-20 bg-gradient-to-br from-gray-50 to-gray-200">
+    <section id="coverage" className="py-20 bg-gradient-to-br from-gray-50 to-gray-200" ref={sectionRef}>
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 reveal">
             <h2 className="text-jc-navy font-black text-3xl md:text-5xl mb-4">
                 🌍 Área de Atendimento - Sudoeste do Paraná
             </h2>
@@ -22,11 +40,12 @@ const CoverageArea: React.FC = () => {
             <a 
                 href={`/#/ar-condicionado-${city.slug}`}
                 key={index}
-                className={`p-6 rounded-2xl shadow-lg transition-all duration-300 border-2 flex flex-col items-center text-center group cursor-pointer ${
+                className={`p-6 rounded-2xl shadow-lg transition-all duration-300 border-2 flex flex-col items-center text-center group cursor-pointer reveal ${
                     city.type === 'sede' 
                     ? 'bg-gradient-to-br from-jc-navy to-[#0f1729] text-white border-jc-gold transform md:-translate-y-4 hover:scale-105 shadow-xl z-10' 
                     : 'bg-white hover:-translate-y-2 border-transparent hover:border-jc-gold text-jc-navy'
                 }`}
+                style={{ transitionDelay: `${index * 50}ms` }}
             >
                 <div className="text-4xl mb-4 transform transition-transform group-hover:scale-110 group-hover:rotate-6">
                     {city.type === 'sede' ? '🏢' : '📍'}
@@ -52,7 +71,7 @@ const CoverageArea: React.FC = () => {
           ))}
         </div>
         
-        <div className="bg-white p-8 md:p-12 rounded-3xl border-l-8 border-jc-gold shadow-xl">
+        <div className="bg-white p-8 md:p-12 rounded-3xl border-l-8 border-jc-gold shadow-xl reveal">
           <h4 className="text-jc-navy font-bold text-2xl mb-6 flex items-center gap-2">
             <i className="fas fa-map-marked-alt text-jc-gold"></i> Também atendemos:
           </h4>
@@ -76,7 +95,7 @@ const CoverageArea: React.FC = () => {
         </div>
 
         {/* International Section - Argentina */}
-        <div id="argentina" className="mt-16 bg-gradient-to-br from-[#e8f4f8] to-[#d4e9f2] rounded-3xl p-8 md:p-12 border-4 border-jc-argentina relative overflow-hidden shadow-2xl">
+        <div id="argentina" className="mt-16 bg-gradient-to-br from-[#e8f4f8] to-[#d4e9f2] rounded-3xl p-8 md:p-12 border-4 border-jc-argentina relative overflow-hidden shadow-2xl reveal">
             {/* Background Decor */}
             <div className="absolute -top-12 -right-12 text-[200px] opacity-5 rotate-[-15deg] pointer-events-none select-none">
                 🌎

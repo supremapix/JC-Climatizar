@@ -81,7 +81,7 @@
       }
     </script>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
       
       html {
         scroll-behavior: smooth;
@@ -89,6 +89,33 @@
       
       body {
         font-family: 'Inter', sans-serif;
+        font-weight: 400; /* Regular weight for body text */
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      /* Headings Typography Hierarchy */
+      h1, h2 {
+        font-weight: 900; /* Black */
+        letter-spacing: -0.02em;
+      }
+      h3 {
+        font-weight: 700; /* Bold */
+      }
+      h4, h5 {
+        font-weight: 600; /* SemiBold */
+      }
+
+      /* Scroll Reveal Classes */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        will-change: opacity, transform;
+      }
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
       }
 
       /* Custom scrollbar */
