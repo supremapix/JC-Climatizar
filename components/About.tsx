@@ -1,52 +1,91 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 const About: React.FC = () => {
+  const statsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counters = entry.target.querySelectorAll('.stat-number');
+          counters.forEach((counter) => {
+            const target = parseInt(counter.getAttribute('data-target') || '0');
+            const duration = 2000; 
+            const increment = target / (duration / 16);
+            let current = 0;
+
+            const updateCounter = () => {
+              current += increment;
+              if (current < target) {
+                counter.textContent = Math.ceil(current).toString();
+                requestAnimationFrame(updateCounter);
+              } else {
+                counter.textContent = target.toString() + "+";
+              }
+            };
+            updateCounter();
+          });
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="about" className="py-20 bg-white">
+    <section id="about" className="py-24 bg-white">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center gap-12">
+        <div className="flex flex-col md:flex-row items-center gap-16">
           
           <div className="w-full md:w-1/2">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
               <img 
                 src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1000&auto=format&fit=crop" 
                 alt="Equipe JC Climatizar" 
-                className="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700"
+                className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-110"
               />
-              <div className="absolute bottom-0 right-0 bg-jc-gold p-6 rounded-tl-3xl">
-                <p className="text-jc-navy font-bold text-4xl">10+</p>
-                <p className="text-jc-navy font-semibold text-sm uppercase">Anos de Experiência</p>
+              <div className="absolute inset-0 bg-jc-navy/20 group-hover:bg-transparent transition-colors duration-500"></div>
+              
+              {/* Experience Badge */}
+              <div className="absolute bottom-0 right-0 bg-jc-gold p-8 rounded-tl-3xl shadow-lg z-10">
+                <p className="text-jc-navy font-black text-5xl leading-none">10<span className="text-3xl">+</span></p>
+                <p className="text-jc-navy font-bold text-sm uppercase tracking-wider mt-1">Anos de<br/>Experiência</p>
               </div>
             </div>
           </div>
 
           <div className="w-full md:w-1/2">
-            <h2 className="text-jc-navy font-bold text-3xl md:text-4xl mb-6">
-              Sobre a <span className="text-jc-gold bg-jc-navy px-2">JC Climatizar</span>
+            <h2 className="text-jc-navy font-black text-3xl md:text-5xl mb-8 leading-tight">
+              Excelência em <br/>
+              <span className="text-white bg-jc-navy px-3 py-1 inline-block transform -skew-x-6 mt-2">Climatização</span>
             </h2>
+            
             <p className="text-gray-600 text-lg mb-6 leading-relaxed">
-              Somos uma empresa especializada em soluções de climatização, comprometida em levar conforto e bem-estar para sua casa ou empresa.
+              Somos referência em soluções de climatização, unindo tecnologia e expertise técnica para proporcionar o máximo conforto térmico para residências e empresas.
             </p>
-            <p className="text-gray-600 mb-8 leading-relaxed">
-              Com uma equipe técnica altamente qualificada, trabalhamos com as melhores marcas do mercado e seguimos rigorosos padrões de qualidade na instalação, manutenção e higienização de aparelhos de ar condicionado. Nosso foco é a satisfação total do cliente, oferecendo agilidade, transparência e preço justo.
+            <p className="text-gray-600 mb-10 leading-relaxed">
+              Nossa equipe passa por treinamentos constantes e utiliza ferramentas de última geração, garantindo instalações limpas, seguras e duradouras. Transparência e preço justo são nossos pilares.
             </p>
             
-            <ul className="space-y-4 mb-8">
-              {[
-                "Técnicos Certificados",
-                "Garantia nos Serviços",
-                "Atendimento Personalizado",
-                "Ferramentas de Alta Tecnologia"
-              ].map((item, idx) => (
-                <li key={idx} className="flex items-center gap-3 text-jc-navy font-medium">
-                  <i className="fas fa-check-circle text-jc-gold text-xl"></i>
-                  {item}
-                </li>
-              ))}
-            </ul>
+            {/* Animated Stats */}
+            <div ref={statsRef} className="grid grid-cols-2 gap-6 mb-10">
+              <div className="bg-gray-50 p-4 rounded-xl border-l-4 border-jc-gold shadow-sm">
+                 <span className="stat-number text-3xl font-black text-jc-navy block mb-1" data-target="1500">0</span>
+                 <span className="text-sm text-gray-500 font-medium uppercase">Projetos Entregues</span>
+              </div>
+              <div className="bg-gray-50 p-4 rounded-xl border-l-4 border-jc-gold shadow-sm">
+                 <span className="stat-number text-3xl font-black text-jc-navy block mb-1" data-target="98">0</span>
+                 <span className="text-sm text-gray-500 font-medium uppercase">% Satisfação</span>
+              </div>
+            </div>
 
-            <a href="#contact" className="inline-block bg-jc-navy text-white px-8 py-3 rounded-lg font-bold hover:bg-jc-navy/90 transition-colors">
-              Fale Conosco
+            <a href="#contact" className="inline-block bg-jc-navy text-white px-10 py-4 rounded-lg font-bold hover:bg-jc-navy/90 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
+              Fale com um Especialista
             </a>
           </div>
 

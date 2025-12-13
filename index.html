@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="JC Climatizar - Especialistas em instalação, manutenção e limpeza de ar condicionado. Atendimento residencial e comercial.">
     <title>JC Climatizar - Soluções em Ar Condicionado</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -16,22 +17,63 @@
                 gold: '#FFD700',
                 goldDark: '#FFC800',
                 silver: '#E5E7EB',
+                red: '#EA4335',
+                redDark: '#C5221F',
+                whatsapp: '#25D366',
+                whatsappDark: '#128C7E',
               }
             },
             fontFamily: {
               sans: ['Inter', 'sans-serif'],
+            },
+            backgroundImage: {
+              'gradient-gold': 'linear-gradient(135deg, #FFD700, #FFC800)',
+              'gradient-navy': 'linear-gradient(135deg, #1a2844, #0f1729)',
+            },
+            animation: {
+              'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'float': 'floatParticles 20s ease-in-out infinite',
+              'slideDown': 'slideDown 0.5s ease-out',
+              'fadeInUp': 'fadeInUp 0.6s ease-out backwards',
+              'heartbeat': 'heartbeat 1.3s ease-in-out infinite',
+              'spin-slow': 'spin 3s linear infinite',
+            },
+            keyframes: {
+              floatParticles: {
+                '0%, 100%': { transform: 'translate(0, 0)' },
+                '25%': { transform: 'translate(5%, -5%)' },
+                '50%': { transform: 'translate(-5%, 5%)' },
+                '75%': { transform: 'translate(5%, 5%)' },
+              },
+              slideDown: {
+                'from': { transform: 'translateY(-100%)', opacity: '0' },
+                'to': { transform: 'translateY(0)', opacity: '1' },
+              },
+              fadeInUp: {
+                'from': { opacity: '0', transform: 'translateY(30px)' },
+                'to': { opacity: '1', transform: 'translateY(0)' },
+              },
+              heartbeat: {
+                '0%, 100%': { transform: 'scale(1)' },
+                '10%, 30%': { transform: 'scale(0.85)' },
+                '20%, 40%': { transform: 'scale(1.15)' },
+              }
             }
           }
         }
       }
     </script>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
       
       html {
         scroll-behavior: smooth;
       }
       
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+
       /* Custom scrollbar */
       ::-webkit-scrollbar {
         width: 10px;
@@ -46,18 +88,113 @@
       ::-webkit-scrollbar-thumb:hover {
         background: #FFD700;
       }
+
+      /* Loading Screen Styles */
+      #loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #1a2844, #0f1729);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 99999;
+        transition: opacity 0.5s ease-out, visibility 0.5s;
+      }
+
+      .loader-content {
+        text-align: center;
+        position: relative;
+      }
+
+      .loader-logo {
+        width: 120px;
+        height: 120px;
+        background: radial-gradient(circle at 30% 30%, #f3f4f6, #d1d5db);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+        margin-bottom: 30px;
+        border: 4px solid #f3f4f6;
+        animation: pulse 2s infinite ease-in-out;
+      }
+
+      .loader-text {
+        font-family: serif;
+        font-weight: bold;
+        font-size: 48px;
+        color: #1a2844;
+        letter-spacing: -2px;
+      }
+
+      .spinner {
+        width: 50px;
+        height: 50px;
+        border: 4px solid rgba(255, 215, 0, 0.2);
+        border-top-color: #FFD700;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 0 auto;
+      }
+
+      /* Typewriter Cursor */
+      .typewriter-cursor {
+        border-right: 3px solid #FFD700;
+        padding-right: 5px;
+        animation: blink 0.7s step-end infinite;
+      }
+
+      @keyframes blink {
+        from, to { border-color: transparent; }
+        50% { border-color: #FFD700; }
+      }
+
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+      @keyframes pulse {
+        0%, 100% { transform: scale(1); box-shadow: 0 0 30px rgba(255, 215, 0, 0.3); }
+        50% { transform: scale(1.05); box-shadow: 0 0 50px rgba(255, 215, 0, 0.6); }
+      }
+      
+      /* 3D Card Perspective */
+      .perspective-1000 {
+        perspective: 1000px;
+      }
+      
+      .preserve-3d {
+        transform-style: preserve-3d;
+      }
     </style>
   <script type="importmap">
 {
   "imports": {
     "react": "https://esm.sh/react@^19.2.3",
     "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "react/": "https://esm.sh/react@^19.2.3/"
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "vite": "https://esm.sh/vite@^7.2.7",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
   }
 }
 </script>
 </head>
   <body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+      <div class="loader-content">
+        <div class="loader-logo">
+          <span class="loader-text">JC</span>
+        </div>
+        <div class="spinner"></div>
+      </div>
+    </div>
+
     <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
   </body>
 </html>

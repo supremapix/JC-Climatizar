@@ -14,115 +14,122 @@ const Contact: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app, this would send to a backend. 
-    // Here we redirect to WhatsApp with the message pre-filled.
     const text = `Olá, meu nome é ${formData.name}. ${formData.message}`;
     const url = `https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodeURIComponent(text)}`;
     window.open(url, '_blank');
   };
 
   return (
-    <section id="contact" className="py-20 bg-gray-900 text-white relative">
-        <div className="absolute inset-0 bg-jc-navy/90 z-0"></div>
+    <section id="contact" className="py-24 relative bg-[#0f1729] text-white">
+        {/* Decorative Background Elements */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-jc-navy rounded-full blur-3xl opacity-50 transform translate-x-1/2 -translate-y-1/2"></div>
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-jc-gold rounded-full blur-3xl opacity-10 transform -translate-x-1/2 translate-y-1/2"></div>
+        </div>
+
         <div className="container mx-auto px-4 relative z-10">
-            
             <div className="text-center mb-16">
-                <h2 className="font-bold text-3xl md:text-4xl mb-4 text-white">Entre em Contato</h2>
-                <p className="text-gray-300 max-w-xl mx-auto">
-                    Pronto para climatizar seu ambiente? Solicite um orçamento sem compromisso.
-                </p>
+                <span className="text-jc-gold font-bold uppercase tracking-wider text-sm mb-2 block">Fale Conosco</span>
+                <h2 className="font-black text-3xl md:text-5xl mb-6 text-white">Solicite seu Orçamento</h2>
+                <div className="w-24 h-1 bg-gradient-to-r from-jc-gold to-transparent mx-auto"></div>
             </div>
 
             <div className="flex flex-col lg:flex-row gap-12 max-w-6xl mx-auto">
                 
                 {/* Contact Info */}
                 <div className="w-full lg:w-1/3 space-y-8">
-                    <div className="flex items-start gap-4">
-                        <div className="w-12 h-12 bg-jc-gold rounded-full flex items-center justify-center text-jc-navy text-xl shrink-0">
-                            <i className="fas fa-phone-alt"></i>
-                        </div>
-                        <div>
-                            <h3 className="text-xl font-bold mb-1">Telefones</h3>
-                            <p className="text-gray-300 hover:text-white transition-colors">
-                                <a href={`tel:${COMPANY_INFO.phone}`}>{COMPANY_INFO.phoneDisplay}</a>
-                            </p>
-                            <p className="text-gray-300 hover:text-white transition-colors">
-                                <a href={`https://wa.me/${COMPANY_INFO.whatsapp}`}>WhatsApp</a>
-                            </p>
-                        </div>
-                    </div>
-
-                    <div className="flex items-start gap-4">
-                        <div className="w-12 h-12 bg-jc-gold rounded-full flex items-center justify-center text-jc-navy text-xl shrink-0">
-                            <i className="fas fa-envelope"></i>
-                        </div>
-                        <div>
-                            <h3 className="text-xl font-bold mb-1">Email</h3>
-                            <p className="text-gray-300 break-all">
-                                <a href={`mailto:${COMPANY_INFO.email}`}>{COMPANY_INFO.email}</a>
-                            </p>
+                    <div className="bg-white/5 p-6 rounded-2xl border border-white/10 backdrop-blur-sm hover:border-jc-gold/50 transition-colors">
+                        <div className="flex items-start gap-4">
+                            <div className="w-12 h-12 bg-gradient-to-br from-jc-gold to-jc-goldDark rounded-full flex items-center justify-center text-jc-navy text-xl shrink-0 shadow-lg">
+                                <i className="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h3 className="text-xl font-bold mb-1">Telefones</h3>
+                                <p className="text-gray-300 hover:text-jc-gold transition-colors">
+                                    <a href={`tel:${COMPANY_INFO.phone}`}>{COMPANY_INFO.phoneDisplay}</a>
+                                </p>
+                                <p className="text-gray-300 hover:text-jc-gold transition-colors">
+                                    <a href={`https://wa.me/${COMPANY_INFO.whatsapp}`}>WhatsApp</a>
+                                </p>
+                            </div>
                         </div>
                     </div>
 
-                    <div className="flex items-start gap-4">
-                        <div className="w-12 h-12 bg-jc-gold rounded-full flex items-center justify-center text-jc-navy text-xl shrink-0">
-                            <i className="fas fa-map-marker-alt"></i>
+                    <div className="bg-white/5 p-6 rounded-2xl border border-white/10 backdrop-blur-sm hover:border-jc-gold/50 transition-colors">
+                        <div className="flex items-start gap-4">
+                            <div className="w-12 h-12 bg-gradient-to-br from-jc-gold to-jc-goldDark rounded-full flex items-center justify-center text-jc-navy text-xl shrink-0 shadow-lg">
+                                <i className="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h3 className="text-xl font-bold mb-1">Email</h3>
+                                <p className="text-gray-300 break-all hover:text-jc-gold transition-colors">
+                                    <a href={`mailto:${COMPANY_INFO.email}`}>{COMPANY_INFO.email}</a>
+                                </p>
+                            </div>
                         </div>
-                        <div>
-                            <h3 className="text-xl font-bold mb-1">Área de Atendimento</h3>
-                            <p className="text-gray-300">
-                                {COMPANY_INFO.address}
-                            </p>
+                    </div>
+
+                    <div className="bg-white/5 p-6 rounded-2xl border border-white/10 backdrop-blur-sm hover:border-jc-gold/50 transition-colors">
+                        <div className="flex items-start gap-4">
+                            <div className="w-12 h-12 bg-gradient-to-br from-jc-gold to-jc-goldDark rounded-full flex items-center justify-center text-jc-navy text-xl shrink-0 shadow-lg">
+                                <i className="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h3 className="text-xl font-bold mb-1">Atendimento</h3>
+                                <p className="text-gray-300">
+                                    {COMPANY_INFO.address}
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 {/* Form */}
-                <div className="w-full lg:w-2/3 bg-white/5 p-8 rounded-xl border border-white/10 backdrop-blur-sm">
+                <div className="w-full lg:w-2/3 bg-white/5 p-8 md:p-10 rounded-3xl border border-white/10 backdrop-blur-md shadow-2xl">
                     <form onSubmit={handleSubmit} className="space-y-6">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label htmlFor="name" className="block text-sm font-medium mb-2 text-jc-gold">Nome</label>
+                            <div className="group">
+                                <label htmlFor="name" className="block text-sm font-bold mb-2 text-jc-gold uppercase tracking-wider">Nome</label>
                                 <input 
                                     type="text" 
                                     id="name" 
                                     name="name" 
                                     required
-                                    className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-jc-gold text-white"
-                                    placeholder="Seu nome"
+                                    className="w-full bg-gray-900/50 border border-gray-700 rounded-xl px-4 py-4 focus:outline-none focus:border-jc-gold text-white transition-all group-hover:border-gray-600"
+                                    placeholder="Seu nome completo"
                                     onChange={handleChange}
                                 />
                             </div>
-                            <div>
-                                <label htmlFor="phone" className="block text-sm font-medium mb-2 text-jc-gold">Telefone / WhatsApp</label>
+                            <div className="group">
+                                <label htmlFor="phone" className="block text-sm font-bold mb-2 text-jc-gold uppercase tracking-wider">WhatsApp</label>
                                 <input 
                                     type="tel" 
                                     id="phone" 
                                     name="phone" 
                                     required
-                                    className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-jc-gold text-white"
+                                    className="w-full bg-gray-900/50 border border-gray-700 rounded-xl px-4 py-4 focus:outline-none focus:border-jc-gold text-white transition-all group-hover:border-gray-600"
                                     placeholder="(00) 00000-0000"
                                     onChange={handleChange}
                                 />
                             </div>
                         </div>
-                        <div>
-                            <label htmlFor="message" className="block text-sm font-medium mb-2 text-jc-gold">Mensagem</label>
+                        <div className="group">
+                            <label htmlFor="message" className="block text-sm font-bold mb-2 text-jc-gold uppercase tracking-wider">Mensagem</label>
                             <textarea 
                                 id="message" 
                                 name="message" 
                                 rows={4}
                                 required
-                                className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-jc-gold text-white"
-                                placeholder="Descreva o que você precisa..."
+                                className="w-full bg-gray-900/50 border border-gray-700 rounded-xl px-4 py-4 focus:outline-none focus:border-jc-gold text-white transition-all group-hover:border-gray-600 resize-none"
+                                placeholder="Descreva sua necessidade (instalação, manutenção, limpeza...)"
                                 onChange={handleChange}
                             ></textarea>
                         </div>
                         <button 
                             type="submit" 
-                            className="w-full bg-jc-gold hover:bg-white hover:text-jc-navy text-jc-navy font-bold py-4 rounded-lg transition-all text-lg"
+                            className="w-full bg-gradient-to-r from-jc-gold to-jc-goldDark hover:from-white hover:to-white hover:text-jc-navy text-jc-navy font-black py-5 rounded-xl transition-all text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                         >
-                            Enviar Mensagem via WhatsApp
+                            ENVIAR VIA WHATSAPP <i className="fab fa-whatsapp ml-2"></i>
                         </button>
                     </form>
                 </div>
