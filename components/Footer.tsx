@@ -53,7 +53,7 @@ const Footer: React.FC = () => {
              <ul className="space-y-2">
                  {MAIN_CITIES.slice(0, 9).map((city, idx) => (
                      <li key={idx}>
-                         <a href={`/ar-condicionado-${city.slug}`} className="text-gray-300 hover:text-jc-gold text-sm transition-all duration-300 hover:pl-2 flex items-center group">
+                         <a href={`/#/ar-condicionado-${city.slug}`} className="text-gray-300 hover:text-jc-gold text-sm transition-all duration-300 hover:pl-2 flex items-center group">
                             <span className="w-0 overflow-hidden group-hover:w-3 transition-all duration-300 mr-0 group-hover:mr-2 opacity-0 group-hover:opacity-100 text-jc-gold">→</span>
                              {city.name} {city.type === 'sede' ? '(Sede)' : ''}
                          </a>
@@ -73,7 +73,7 @@ const Footer: React.FC = () => {
                  </h4>
                  <ul className="space-y-3">
                     <li>
-                        <a href="/ar-condicionado-bernardo-irigoyen" className="text-white hover:text-jc-argentina text-sm font-bold transition-colors flex items-center gap-2">
+                        <a href="/#/ar-condicionado-bernardo-irigoyen" className="text-white hover:text-jc-argentina text-sm font-bold transition-colors flex items-center gap-2">
                             <i className="fas fa-arrow-right text-jc-argentina"></i> Bernardo de Irigoyen
                         </a>
                     </li>

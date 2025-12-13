@@ -17,7 +17,7 @@ const CoverageArea: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {MAIN_CITIES.map((city, index) => (
             <a 
-                href={`/ar-condicionado-${city.slug}`}
+                href={`/#/ar-condicionado-${city.slug}`}
                 key={index}
                 className={`p-6 rounded-2xl shadow-lg transition-all duration-300 border-2 flex flex-col items-center text-center group cursor-pointer ${
                     city.type === 'sede' 
@@ -106,7 +106,7 @@ const CoverageArea: React.FC = () => {
                         <p className="font-bold text-jc-gold">💬 Atendimento em Português e Espanhol</p>
                     </div>
 
-                    <a href="/ar-condicionado-bernardo-irigoyen" className="inline-block bg-white text-jc-argentinaDark px-8 py-4 rounded-full font-bold text-lg mt-8 shadow-lg hover:bg-jc-gold hover:text-jc-navy hover:-translate-y-1 transition-all duration-300">
+                    <a href="/#/ar-condicionado-bernardo-irigoyen" className="inline-block bg-white text-jc-argentinaDark px-8 py-4 rounded-full font-bold text-lg mt-8 shadow-lg hover:bg-jc-gold hover:text-jc-navy hover:-translate-y-1 transition-all duration-300">
                         VER MAIS INFORMAÇÕES
                     </a>
                  </div>

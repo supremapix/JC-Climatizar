@@ -11,7 +11,8 @@ import CityPage from './components/CityPage';
 import ArgentinaCityPage from './components/ArgentinaCityPage';
 
 const App: React.FC = () => {
-  const [currentPath, setCurrentPath] = useState(window.location.pathname);
+  // Use hash for routing to avoid 404s on static hosting without rewrite rules
+  const [currentHash, setCurrentHash] = useState(window.location.hash);
 
   useEffect(() => {
     // Remove loading screen when React mounts
@@ -23,16 +24,16 @@ const App: React.FC = () => {
       }, 500);
     }
 
-    // Handle back/forward browser buttons
-    const handlePopState = () => {
-      setCurrentPath(window.location.pathname);
+    // Handle hash changes
+    const handleHashChange = () => {
+      setCurrentHash(window.location.hash);
     };
-    window.addEventListener('popstate', handlePopState);
-    return () => window.removeEventListener('popstate', handlePopState);
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
-  // Route for Argentina Page
-  if (currentPath === '/ar-condicionado-bernardo-irigoyen') {
+  // 1. Argentina Page Route
+  if (currentHash === '#/ar-condicionado-bernardo-irigoyen') {
       return (
         <div className="min-h-screen bg-gray-50 text-gray-800 font-sans selection:bg-jc-gold selection:text-jc-navy">
             <Header />
@@ -45,10 +46,9 @@ const App: React.FC = () => {
       );
   }
 
-  // Simple Client-Side Router logic
-  // If path starts with /ar-condicionado-, render CityPage (for Brazil)
-  if (currentPath.startsWith('/ar-condicionado-')) {
-    const slug = currentPath.replace('/ar-condicionado-', '');
+  // 2. City Pages Route (e.g. #/ar-condicionado-barracao)
+  if (currentHash.startsWith('#/ar-condicionado-')) {
+    const slug = currentHash.replace('#/ar-condicionado-', '');
     return (
       <div className="min-h-screen bg-gray-50 text-gray-800 font-sans selection:bg-jc-gold selection:text-jc-navy">
         <Header />
@@ -61,7 +61,8 @@ const App: React.FC = () => {
     );
   }
 
-  // Default Main Page
+  // 3. Default / Home Route
+  // Handles empty hash, #, or anchor links like #services, #contact
   return (
     <div className="min-h-screen bg-gray-50 text-gray-800 font-sans selection:bg-jc-gold selection:text-jc-navy">
       <Header />
