@@ -15,32 +15,43 @@ const Hero: React.FC = () => {
   const [text, setText] = useState('');
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  const [typingSpeed, setTypingSpeed] = useState(100);
 
   useEffect(() => {
-    const handleTyping = () => {
-      const currentPhrase = PHRASES[phraseIndex];
-      
-      if (isDeleting) {
-        setText(currentPhrase.substring(0, text.length - 1));
-        setTypingSpeed(50);
-      } else {
-        setText(currentPhrase.substring(0, text.length + 1));
-        setTypingSpeed(100);
-      }
+    const currentPhrase = PHRASES[phraseIndex];
+    let timer: ReturnType<typeof setTimeout>;
 
-      if (!isDeleting && text === currentPhrase) {
-        // Pause before deleting
-        setTimeout(() => setIsDeleting(true), 2000);
-      } else if (isDeleting && text === '') {
+    // Configuration
+    const typeSpeed = 80;    // Speed per character when typing
+    const deleteSpeed = 40;  // Speed per character when deleting
+    const pauseTime = 2000;  // Pause after finishing typing
+
+    if (isDeleting) {
+      if (text === '') {
+        // Finished deleting, switch to next phrase
         setIsDeleting(false);
         setPhraseIndex((prev) => (prev + 1) % PHRASES.length);
+      } else {
+        // Deleting characters
+        timer = setTimeout(() => {
+          setText((prev) => prev.slice(0, -1));
+        }, deleteSpeed);
       }
-    };
+    } else {
+      if (text === currentPhrase) {
+        // Finished typing, pause then delete
+        timer = setTimeout(() => {
+          setIsDeleting(true);
+        }, pauseTime);
+      } else {
+        // Typing characters
+        timer = setTimeout(() => {
+          setText(currentPhrase.slice(0, text.length + 1));
+        }, typeSpeed);
+      }
+    }
 
-    const timer = setTimeout(handleTyping, typingSpeed);
     return () => clearTimeout(timer);
-  }, [text, isDeleting, phraseIndex, typingSpeed]);
+  }, [text, isDeleting, phraseIndex]);
 
   return (
     // Changed min-h to 100dvh for better mobile browser support
@@ -73,8 +84,8 @@ const Hero: React.FC = () => {
         {/* Adjusted min-height to prevent layout shifts on mobile */}
         <div className="min-h-[120px] sm:min-h-[140px] md:min-h-[180px] flex items-center justify-center mb-4">
             <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black leading-tight drop-shadow-lg max-w-5xl mx-auto px-2">
-              <span className="typewriter-text text-jc-gold text-shadow-sm">
-                {text}
+              <span className="typewriter-text text-jc-gold text-shadow-sm min-h-[1.2em] inline-block">
+                {text || '\u00A0'}
               </span>
             </h1>
         </div>
