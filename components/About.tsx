@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import Logo from './Logo';
 
 const About: React.FC = () => {
   const statsRef = useRef<HTMLDivElement>(null);
@@ -91,10 +90,7 @@ const About: React.FC = () => {
 
           <div className="w-full md:w-1/2 reveal">
             <h2 className="text-jc-navy font-black text-3xl md:text-5xl mb-6 md:mb-8 leading-tight">
-              Excelência em <br/>
-              <div className="mt-2 md:mt-4 inline-block transform origin-left hover:scale-105 transition-transform duration-300">
-                <Logo className="h-16 md:h-20" />
-              </div>
+              Excelência em serviços de climatização, do início ao fim.
             </h2>
             
             <p className="text-gray-600 text-base md:text-lg mb-6 leading-relaxed font-light">
