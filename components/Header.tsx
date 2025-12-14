@@ -51,7 +51,7 @@ const Header: React.FC = () => {
         <a href="/" className="flex-shrink-0 group animate-fadeInScale z-50 relative">
           {/* Logo scales slightly on mobile to save space */}
           <div className="scale-90 md:scale-100 origin-left">
-            <Logo variant="light" className="transition-transform duration-300 group-hover:scale-105 group-hover:rotate-2" />
+            <Logo className="transition-transform duration-300 group-hover:scale-105 group-hover:rotate-2" />
           </div>
         </a>
 

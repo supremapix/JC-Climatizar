@@ -4,6 +4,7 @@ import { COMPANY_INFO } from '../constants';
 const PHRASES = [
   "Climatização Profissional em Barracão-PR",
   "Atendemos Todo o Sudoeste do Paraná",
+  "Atendemos Santa Catarina e Argentina",
   "Instalação e Manutenção de Ar Condicionado",
   "Cobertura de 200km - Atendimento Rápido",
   "Especialistas em Climatização Há Mais de 10 Anos",
@@ -60,32 +61,15 @@ const Hero: React.FC = () => {
       {/* Animated Particle Background */}
       <div className="absolute inset-0 z-0 pointer-events-none hero-particles"></div>
 
-      {/* Background Image with Overlay - Optimized with WebP, Responsive Sizes and Lazy Loading */}
+      {/* Background Image with Overlay - Manutenção de ar condicionado */}
       <div className="absolute inset-0 z-0">
-        <picture>
-            {/* Mobile Image - WebP, reduced width */}
-            <source 
-                media="(max-width: 768px)" 
-                srcSet="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=70&w=800&auto=format&fit=crop&fm=webp" 
-                type="image/webp" 
-            />
-            {/* Desktop Image - WebP, Full HD width */}
-            <source 
-                media="(min-width: 769px)" 
-                srcSet="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=75&w=1920&auto=format&fit=crop&fm=webp" 
-                type="image/webp" 
-            />
-            {/* Fallback Image */}
-            <img 
-              src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=75&w=1920&auto=format&fit=crop" 
-              alt="Técnico de ar condicionado profissional" 
-              className="w-full h-full object-cover object-center opacity-20 transition-opacity duration-700"
-              loading="lazy"
-              decoding="async"
-              width="1920"
-              height="1080"
-            />
-        </picture>
+        <img 
+          src="/stock_images/air_conditioning_mai_034b1531.jpg" 
+          alt="Manutenção de ar condicionado" 
+          className="w-full h-full object-cover object-center opacity-15 transition-opacity duration-700"
+          loading="lazy"
+          decoding="async"
+        />
         <div className="absolute inset-0 bg-gradient-to-br from-jc-navy via-jc-navy/95 to-[#0f1729]/90"></div>
       </div>
 
