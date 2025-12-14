@@ -75,7 +75,7 @@ export const DETAILED_SERVICES = [
     title: "Manutenção Preventiva",
     subtitle: "Aumente a vida útil do seu aparelho e economize energia",
     icon: "fa-clipboard-check",
-    heroImage: "/Manutenção_Preventiva_1765732177944.jpg",
+    heroImage: "/Manutenção_Preventiva_1765732645524.jpg",
     description: "A falta de manutenção é a principal causa de quebra de ar condicionado. A preventiva detecta falhas antes que elas parem seu equipamento.",
     longDescription: "Além de garantir o conforto térmico, a manutenção preventiva reduz o consumo de energia em até 30%. Para empresas, oferecemos o PMOC (Plano de Manutenção, Operação e Controle), exigido pela Lei 13.589/2018, garantindo a qualidade do ar e a regularidade fiscal do seu negócio.",
     features: [
@@ -94,7 +94,7 @@ export const DETAILED_SERVICES = [
     title: "Limpeza e Higienização",
     subtitle: "Ar puro e saudável livre de fungos e bactérias",
     icon: "fa-pump-soap",
-    heroImage: "/instalacao-e-manutencao-ar-condicionado-marmiteiros-1_1765732142254.webp",
+    heroImage: "/limpeza_e_higienizacao_1765732667556.webp",
     description: "Você sabia que o ar condicionado sujo pode acumular 10x mais bactérias que um banheiro público? Proteja a saúde da sua família.",
     longDescription: "Nosso processo de higienização é profundo. Não limpamos apenas o filtro; desmontamos a carenagem para acessar a turbina e a serpentina, onde a sujeira realmente se esconde. Utilizamos produtos bactericidas e fungicidas certificados pela ANVISA, eliminando odores e prevenindo doenças respiratórias.",
     features: [

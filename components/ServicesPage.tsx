@@ -60,26 +60,12 @@ const ServicesPage: React.FC = () => {
                         {/* Image Side - Optimized */}
                         <div className="md:w-2/5 h-64 md:h-auto overflow-hidden relative bg-gray-200">
                              <div className="absolute inset-0 bg-jc-navy/20 group-hover:bg-transparent transition-colors z-10"></div>
-                             <picture>
-                                 <source 
-                                    media="(max-width: 768px)" 
-                                    srcSet={`${service.heroImage}&fm=webp&w=400`} 
-                                    type="image/webp" 
-                                 />
-                                 <source 
-                                    media="(min-width: 769px)" 
-                                    srcSet={`${service.heroImage}&fm=webp&w=800`} 
-                                    type="image/webp" 
-                                 />
-                                 <img 
-                                    src={`${service.heroImage}&w=800`}
-                                    alt={service.title} 
-                                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-                                    loading="lazy"
-                                    width="400"
-                                    height="300"
-                                 />
-                             </picture>
+                             <img 
+                                src={service.heroImage}
+                                alt={service.title} 
+                                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                                loading="lazy"
+                             />
                              <div className="absolute bottom-4 left-4 z-20 bg-white/90 backdrop-blur-sm p-3 rounded-full text-jc-navy shadow-lg">
                                 <i className={`fas ${service.icon} text-xl`}></i>
                              </div>

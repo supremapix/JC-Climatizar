@@ -96,24 +96,12 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ id }) => {
             <div className="lg:w-1/2 w-full sticky top-32">
                <div className="bg-white rounded-3xl overflow-hidden shadow-2xl group">
                  <div className="relative h-64 overflow-hidden bg-gray-200">
-                    <picture>
-                         <source 
-                            media="(max-width: 768px)" 
-                            srcSet={`${service.heroImage}&fm=webp&w=600`} 
-                            type="image/webp" 
-                         />
-                         <source 
-                            media="(min-width: 769px)" 
-                            srcSet={`${service.heroImage}&fm=webp&w=1000`} 
-                            type="image/webp" 
-                         />
-                        <img 
-                          src={`${service.heroImage}&w=1000`} 
-                          alt={service.title} 
-                          className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-                          loading="lazy"
-                        />
-                    </picture>
+                    <img 
+                      src={service.heroImage} 
+                      alt={service.title} 
+                      className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                      loading="lazy"
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     <div className="absolute bottom-6 left-6 text-white font-bold text-lg">
                       <i className="fas fa-certificate text-jc-gold mr-2"></i> Qualidade Garantida
