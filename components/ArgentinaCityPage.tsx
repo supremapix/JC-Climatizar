@@ -13,7 +13,15 @@ const ArgentinaCityPage: React.FC = () => {
        
        {/* HERO BILÍNGUE */}
       <section className="relative bg-gradient-to-br from-jc-navy to-[#0f1729] text-white py-20 overflow-hidden">
-         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(116,172,223,0.1),transparent)] pointer-events-none"></div>
+         {/* Background Image - Manutenção de ar condicionado */}
+         <div className="absolute inset-0 z-0">
+           <img 
+             src="/instalacao-e-manutencao-ar-condicionado-marmiteiros-1_1765725199587.webp" 
+             alt="Manutenção de ar condicionado" 
+             className="w-full h-full object-cover opacity-20"
+           />
+         </div>
+         <div className="absolute inset-0 bg-gradient-to-br from-jc-navy/90 via-jc-navy/85 to-[#0f1729]/80"></div>
          
          {/* Language Toggle */}
          <div className="absolute top-24 right-4 md:right-10 z-20 bg-white/10 backdrop-blur-md rounded-full p-1 border border-white/20 flex">

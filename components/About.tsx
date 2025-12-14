@@ -64,35 +64,28 @@ const About: React.FC = () => {
           
           <div className="w-full md:w-1/2 reveal">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
-              {/* Optimized Image with Picture Tag */}
-              <picture>
-                  <source 
-                    media="(max-width: 768px)" 
-                    srcSet="https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=70&w=600&auto=format&fit=crop&fm=webp" 
-                    type="image/webp" 
-                  />
-                  <source 
-                    media="(min-width: 769px)" 
-                    srcSet="https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1000&auto=format&fit=crop&fm=webp" 
-                    type="image/webp" 
-                  />
-                  <img 
-                    src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1000&auto=format&fit=crop" 
-                    alt="Equipe JC Climatizar" 
-                    className="w-full h-64 md:h-auto object-cover transform transition-transform duration-700 group-hover:scale-110"
-                    loading="lazy"
-                    width="800"
-                    height="600"
-                  />
-              </picture>
+              <img 
+                src="/Higienização_e_manutenção_que_fazem_a_diferença_1765726382785.png" 
+                alt="Higienização e manutenção que fazem a diferença - JC Climatizar" 
+                className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
+              />
               
-              <div className="absolute inset-0 bg-jc-navy/20 group-hover:bg-transparent transition-colors duration-500"></div>
+              <div className="absolute inset-0 bg-jc-navy/10 group-hover:bg-transparent transition-colors duration-500"></div>
               
               {/* Experience Badge */}
               <div className="absolute bottom-0 right-0 bg-jc-gold p-6 md:p-8 rounded-tl-3xl shadow-lg z-10">
                 <p className="text-jc-navy font-black text-4xl md:text-5xl leading-none">10<span className="text-2xl md:text-3xl">+</span></p>
                 <p className="text-jc-navy font-bold text-xs md:text-sm uppercase tracking-wider mt-1">Anos de<br/>Experiência</p>
               </div>
+            </div>
+            
+            {/* Highlighted Phrase */}
+            <div className="mt-6 bg-gradient-to-r from-jc-navy to-jc-navy/90 rounded-2xl p-6 shadow-xl">
+              <p className="text-white text-xl md:text-2xl font-bold italic text-center">
+                "Higienização e manutenção que fazem a diferença"
+              </p>
+              <p className="text-jc-gold text-center mt-2 font-semibold">jcclimatizar.pro</p>
             </div>
           </div>
 

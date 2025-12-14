@@ -57,9 +57,15 @@ const CityPage: React.FC<CityPageProps> = ({ slug }) => {
           1. HERO SECTION (H1 + CTA)
           ========================================= */}
       <section className="relative bg-jc-navy text-white py-16 md:py-24 overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,215,0,0.08),transparent)] pointer-events-none"></div>
-        <div className="absolute top-0 right-0 w-full h-full opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
+        {/* Background Image - Manutenção de ar condicionado */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="/instalacao-e-manutencao-ar-condicionado-marmiteiros-1_1765725199587.webp" 
+            alt="Manutenção de ar condicionado" 
+            className="w-full h-full object-cover opacity-20"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-br from-jc-navy/90 via-jc-navy/85 to-[#0f1729]/80"></div>
 
         <div className="container mx-auto px-4 relative z-10 text-center">
              <nav className="text-xs md:text-sm text-gray-400 mb-6 font-medium uppercase tracking-wider">

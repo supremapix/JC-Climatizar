@@ -27,9 +27,15 @@ const ServicesPage: React.FC = () => {
     <div className="pt-20 bg-gray-50 min-h-screen" ref={sectionRef}>
       {/* Hero Section */}
       <section className="relative bg-jc-navy text-white py-20 overflow-hidden">
-        {/* Background Image Optimization using CSS is tricky for lazy loading, keeping it as div bg but using optimized URL if possible */}
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?q=80&w=2069&auto=format&fit=crop&fm=webp')] bg-cover bg-center opacity-10"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-jc-navy to-jc-navy/80"></div>
+        {/* Background Image - Manutenção de ar condicionado */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="/instalacao-e-manutencao-ar-condicionado-marmiteiros-1_1765725199587.webp" 
+            alt="Manutenção de ar condicionado" 
+            className="w-full h-full object-cover opacity-20"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-br from-jc-navy/90 via-jc-navy/85 to-[#0f1729]/80"></div>
         
         <div className="container mx-auto px-4 relative z-10 text-center reveal">
             <h1 className="text-4xl md:text-6xl font-black mb-6">

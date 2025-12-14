@@ -25,27 +25,15 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ id }) => {
     <div className="bg-gray-50 min-h-screen">
       {/* 1. HERO SECTION */}
       <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 bg-jc-navy text-white overflow-hidden">
-        {/* Background Image - Optimized */}
+        {/* Background Image - Manutenção de ar condicionado */}
         <div className="absolute inset-0 z-0">
-          <picture>
-             <source 
-                media="(max-width: 768px)" 
-                srcSet={`${service.heroImage}&fm=webp&w=800`} 
-                type="image/webp" 
-             />
-             <source 
-                media="(min-width: 769px)" 
-                srcSet={`${service.heroImage}&fm=webp&w=1920`} 
-                type="image/webp" 
-             />
-             <img 
-               src={`${service.heroImage}&w=1920`} 
-               alt={service.title} 
-               className="w-full h-full object-cover opacity-20 filter blur-sm transform scale-105"
-               loading="eager" // Hero image should load eagerly
-             />
-          </picture>
-          <div className="absolute inset-0 bg-gradient-to-t from-jc-navy via-jc-navy/80 to-transparent"></div>
+          <img 
+            src="/instalacao-e-manutencao-ar-condicionado-marmiteiros-1_1765725199587.webp" 
+            alt="Manutenção de ar condicionado" 
+            className="w-full h-full object-cover opacity-20"
+            loading="eager"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-jc-navy/90 via-jc-navy/85 to-[#0f1729]/80"></div>
         </div>
 
         <div className="container mx-auto px-4 relative z-10 text-center">
