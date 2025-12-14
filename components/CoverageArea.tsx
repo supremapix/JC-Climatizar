@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { MAIN_CITIES, ALL_CITIES, slugify } from '../constants';
+import { MAIN_CITIES, ALL_CITIES } from '../constants';
 
 const CoverageArea: React.FC = () => {
   // Filter out main cities to get only extra cities for the list

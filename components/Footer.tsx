@@ -20,7 +20,7 @@ const Footer: React.FC = () => {
           {/* Column 1: About */}
           <div className="space-y-6 animate-fadeInUp" style={{ animationDelay: '0.1s' }}>
             <div className="transform transition-transform hover:scale-105 duration-300">
-                <Logo variant="light" className="scale-90 origin-left" />
+                <Logo className="scale-90 origin-left" />
             </div>
             <p className="text-gray-300 text-sm leading-relaxed border-l-2 border-jc-gold pl-4">
               Especialistas em climatização residencial e comercial. 
