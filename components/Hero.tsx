@@ -64,13 +64,13 @@ const Hero: React.FC = () => {
       {/* Background Image with Overlay - Manutenção de ar condicionado */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="/stock_images/air_conditioning_mai_034b1531.jpg" 
+          src="/instalacao-e-manutencao-ar-condicionado-marmiteiros-1_1765725199587.webp" 
           alt="Manutenção de ar condicionado" 
-          className="w-full h-full object-cover object-center opacity-15 transition-opacity duration-700"
+          className="w-full h-full object-cover object-center opacity-20 transition-opacity duration-700"
           loading="lazy"
           decoding="async"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-jc-navy via-jc-navy/95 to-[#0f1729]/90"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-jc-navy/90 via-jc-navy/85 to-[#0f1729]/80"></div>
       </div>
 
       <div className="container mx-auto px-4 z-10 text-center text-white pt-20 md:pt-0">

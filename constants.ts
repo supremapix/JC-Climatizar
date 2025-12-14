@@ -6,7 +6,7 @@ export const COMPANY_INFO = {
   phoneDisplay: "(46) 99133-3133",
   secondaryPhone: "+5549991333133",
   secondaryPhoneDisplay: "(49) 99133-3133",
-  email: "contato@jcinstalacoes.com.br",
+  email: "contato@jcclimatizar.pro",
   address: "Rua Gabriel Missio, 26 - Barracão - PR",
   zip: "85700-000",
   fullAddress: "Rua Gabriel Missio, 26 - CEP: 85700-000, Barracão - PR",
