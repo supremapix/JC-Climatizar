@@ -15,7 +15,7 @@ Preferred communication style: Simple, everyday language.
 ### Frontend Framework
 - **React 18** with TypeScript for type safety
 - **Vite** as the build tool for fast development and optimized production builds
-- No React Router - uses custom hash-based routing (`window.location.hash`) to avoid 404 issues on static hosting
+- **React Router** with BrowserRouter for clean URLs and SEO-friendly routing
 
 ### Styling Approach
 - **Tailwind CSS** loaded via CDN (`cdn.tailwindcss.com`)
@@ -24,17 +24,18 @@ Preferred communication style: Simple, everyday language.
 - Font Awesome icons via CDN
 
 ### Routing Strategy
-Hash-based routing implemented in `App.tsx`:
-- `#/servicos` - Services listing page
-- `#/servicos/{serviceId}` - Individual service detail pages
-- `#/ar-condicionado-{citySlug}` - City-specific landing pages
-- `#/argentina` - Argentina service page with bilingual support
-- Default route renders homepage with all sections
+React Router BrowserRouter in `App.tsx`:
+- `/` - Homepage with Hero, Services, Coverage, FAQ, About, Contact
+- `/servicos` - Services listing page
+- `/servicos/{serviceId}` - Individual service detail pages (instalacao, manutencao, limpeza, infraestrutura)
+- `/ar-condicionado-{citySlug}` - City-specific landing pages for SEO
+- `/ar-condicionado-bernardo-irigoyen` - Argentina service page with bilingual support
 
 ### Component Structure
 - Stateless functional components with React hooks
 - Intersection Observer pattern for scroll-triggered animations
 - Constants file (`constants.ts`) centralizes company info, navigation links, and service data
+- FAQ accordion component with SEO-optimized questions about PMOC, VRF/VRV, maintenance
 
 ### Data Management
 - No backend or database - all content is static
@@ -51,6 +52,9 @@ Hash-based routing implemented in `App.tsx`:
 - Dynamic meta tag updates per page using `useEffect`
 - City-specific landing pages for local SEO
 - Semantic HTML structure
+- EnhancedSEO component with Open Graph and structured data
+- FAQ component with Schema.org FAQPage markup
+- sitemap.xml and robots.txt for search engines
 
 ## External Dependencies
 
