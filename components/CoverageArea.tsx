@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { MAIN_CITIES, ALL_CITIES } from '../constants';
 
 const CoverageArea: React.FC = () => {
@@ -139,9 +140,9 @@ const CoverageArea: React.FC = () => {
                         <p className="font-bold text-jc-gold">💬 Atendimento em Português e Espanhol</p>
                     </div>
 
-                    <a href="/ar-condicionado-bernardo-irigoyen" className="inline-block bg-white text-jc-argentinaDark px-8 py-4 rounded-full font-bold text-lg mt-8 shadow-lg hover:bg-jc-gold hover:text-jc-navy hover:-translate-y-1 transition-all duration-300">
+                    <Link to="/ar-condicionado-bernardo-irigoyen" className="inline-block bg-white text-jc-argentinaDark px-8 py-4 rounded-full font-bold text-lg mt-8 shadow-lg hover:bg-jc-gold hover:text-jc-navy hover:-translate-y-1 transition-all duration-300">
                         VER MAIS INFORMAÇÕES
-                    </a>
+                    </Link>
                  </div>
 
                  <div className="bg-gray-50 p-8 rounded-2xl border-l-8 border-jc-argentina mb-10">

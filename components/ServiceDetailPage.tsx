@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { COMPANY_INFO, DETAILED_SERVICES } from '../constants';
 
 interface ServiceDetailPageProps {
@@ -16,7 +17,7 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ id }) => {
     return (
       <div className="min-h-screen pt-32 text-center">
         <h1 className="text-2xl font-bold">Serviço não encontrado</h1>
-        <a href="/servicos" className="text-jc-gold underline mt-4 block">Voltar para Serviços</a>
+        <Link to="/servicos" className="text-jc-gold underline mt-4 block">Voltar para Serviços</Link>
       </div>
     );
   }
@@ -139,20 +140,20 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ id }) => {
           <h3 className="text-xl font-bold text-gray-500 uppercase tracking-widest mb-10">Outros Serviços</h3>
           <div className="flex flex-wrap justify-center gap-4">
             {DETAILED_SERVICES.filter(s => s.id !== id).map(other => (
-              <a 
+              <Link 
                 key={other.id}
-                href={`/servicos/${other.id}`}
+                to={`/servicos/${other.id}`}
                 className="bg-white hover:bg-jc-navy hover:text-white text-gray-600 px-6 py-3 rounded-full font-bold shadow-sm hover:shadow-lg transition-all border border-gray-200"
               >
                 {other.title}
-              </a>
+              </Link>
             ))}
-             <a 
-                href="/servicos"
+             <Link 
+                to="/servicos"
                 className="bg-transparent border-2 border-jc-navy text-jc-navy hover:bg-jc-navy hover:text-white px-6 py-3 rounded-full font-bold transition-all"
               >
                 Ver Todos
-              </a>
+              </Link>
           </div>
         </div>
       </section>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Logo from './Logo';
 import { COMPANY_INFO, MAIN_CITIES } from '../constants';
 
@@ -73,9 +74,9 @@ const Footer: React.FC = () => {
                  </h4>
                  <ul className="space-y-3">
                     <li>
-                        <a href="/ar-condicionado-bernardo-irigoyen" className="text-white hover:text-jc-argentina text-sm font-bold transition-colors flex items-center gap-2">
+                        <Link to="/ar-condicionado-bernardo-irigoyen" className="text-white hover:text-jc-argentina text-sm font-bold transition-colors flex items-center gap-2">
                             <i className="fas fa-arrow-right text-jc-argentina"></i> Bernardo de Irigoyen
-                        </a>
+                        </Link>
                     </li>
                     <li className="text-jc-argentina text-sm flex items-center gap-2">
                          <i className="fas fa-globe-americas"></i> Atendimento Bilíngue

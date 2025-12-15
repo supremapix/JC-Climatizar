@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { SERVICES_LIST } from '../constants';
 
 const Services: React.FC = () => {
@@ -64,10 +65,10 @@ const Services: React.FC = () => {
                 </p>
 
                 <div className="text-center">
-                    <a href={`/servicos/${service.id}`} className="inline-block px-6 py-2 rounded-full border-2 border-jc-navy text-jc-navy font-semibold text-xs md:text-sm transition-all duration-300 relative overflow-hidden btn-more group-hover:border-jc-gold group-hover:text-jc-navy group-hover:scale-105">
+                    <Link to={`/servicos/${service.id}`} className="inline-block px-6 py-2 rounded-full border-2 border-jc-navy text-jc-navy font-semibold text-xs md:text-sm transition-all duration-300 relative overflow-hidden btn-more group-hover:border-jc-gold group-hover:text-jc-navy group-hover:scale-105">
                         <span className="relative z-10">Saiba Mais</span>
                         <div className="absolute inset-0 bg-jc-gold transform -translate-x-full transition-transform duration-300 group-hover:translate-x-0 -z-0"></div>
-                    </a>
+                    </Link>
                 </div>
               </div>
             </div>
