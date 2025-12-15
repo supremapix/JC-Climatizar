@@ -14,6 +14,7 @@ import ServicesPage from './components/ServicesPage';
 import ServiceDetailPage from './components/ServiceDetailPage';
 import CookieBanner from './components/CookieBanner';
 import EnhancedSEO from './components/EnhancedSEO';
+import FAQ from './components/FAQ';
 
 const ScrollToTop: React.FC = () => {
   const { pathname } = useLocation();
@@ -57,6 +58,7 @@ const HomePage: React.FC = () => (
     <Hero />
     <Services />
     <CoverageArea />
+    <FAQ />
     <About />
     <Contact />
   </>
