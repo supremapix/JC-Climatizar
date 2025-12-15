@@ -16,7 +16,7 @@ export const COMPANY_INFO = {
 
 export const NAVIGATION_LINKS = [
   { name: 'Início', href: '/' },
-  { name: 'Serviços', href: '#/servicos' }, // Point to new page
+  { name: 'Serviços', href: '/servicos' },
   { name: 'Cidades Atendidas', href: '/#coverage' },
   { name: '🇦🇷 Argentina', href: '/#argentina' },
   { name: 'Sobre', href: '/#about' },

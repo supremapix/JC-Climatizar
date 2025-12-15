@@ -53,7 +53,7 @@ const ServicesPage: React.FC = () => {
             <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
                 {DETAILED_SERVICES.map((service, index) => (
                     <a 
-                        href={`#/servicos/${service.id}`}
+                        href={`/servicos/${service.id}`}
                         key={index} 
                         className="group flex flex-col md:flex-row bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 reveal"
                     >

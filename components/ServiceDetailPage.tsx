@@ -16,7 +16,7 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ id }) => {
     return (
       <div className="min-h-screen pt-32 text-center">
         <h1 className="text-2xl font-bold">Serviço não encontrado</h1>
-        <a href="#/servicos" className="text-jc-gold underline mt-4 block">Voltar para Serviços</a>
+        <a href="/servicos" className="text-jc-gold underline mt-4 block">Voltar para Serviços</a>
       </div>
     );
   }
@@ -141,14 +141,14 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ id }) => {
             {DETAILED_SERVICES.filter(s => s.id !== id).map(other => (
               <a 
                 key={other.id}
-                href={`#/servicos/${other.id}`}
+                href={`/servicos/${other.id}`}
                 className="bg-white hover:bg-jc-navy hover:text-white text-gray-600 px-6 py-3 rounded-full font-bold shadow-sm hover:shadow-lg transition-all border border-gray-200"
               >
                 {other.title}
               </a>
             ))}
              <a 
-                href="#/servicos"
+                href="/servicos"
                 className="bg-transparent border-2 border-jc-navy text-jc-navy hover:bg-jc-navy hover:text-white px-6 py-3 rounded-full font-bold transition-all"
               >
                 Ver Todos
