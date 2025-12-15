@@ -66,7 +66,7 @@ const Hero: React.FC = () => {
         <img 
           src="/instalacao-e-manutencao-ar-condicionado-marmiteiros-1_1765725199587.webp" 
           alt="Manutenção de ar condicionado" 
-          className="w-full h-full object-cover object-center opacity-40 transition-opacity duration-700"
+          className="w-full h-full object-cover object-center opacity-60 transition-opacity duration-700"
           loading="lazy"
           decoding="async"
         />

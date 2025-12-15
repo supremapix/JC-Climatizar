@@ -18,7 +18,7 @@ const ArgentinaCityPage: React.FC = () => {
            <img 
              src="/instalacao-e-manutencao-ar-condicionado-marmiteiros-1_1765725199587.webp" 
              alt="Manutenção de ar condicionado" 
-             className="w-full h-full object-cover opacity-40"
+             className="w-full h-full object-cover opacity-60"
            />
          </div>
          <div className="absolute inset-0 bg-gradient-to-br from-jc-navy/90 via-jc-navy/85 to-[#0f1729]/80"></div>
