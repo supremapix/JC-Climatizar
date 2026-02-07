@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { COMPANY_INFO, DETAILED_SERVICES } from '../constants';
 
 const ServicesPage: React.FC = () => {
@@ -32,7 +33,7 @@ const ServicesPage: React.FC = () => {
           <img 
             src="/instalacao-e-manutencao-ar-condicionado-marmiteiros-1_1765725199587.webp" 
             alt="Manutenção de ar condicionado" 
-            className="w-full h-full object-cover opacity-60"
+            className="w-full h-full object-cover opacity-40"
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-br from-jc-navy/90 via-jc-navy/85 to-[#0f1729]/80"></div>
@@ -52,8 +53,8 @@ const ServicesPage: React.FC = () => {
         <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
                 {DETAILED_SERVICES.map((service, index) => (
-                    <a 
-                        href={`/servicos/${service.id}`}
+                    <Link 
+                        to={`/servicos/${service.id}`}
                         key={index} 
                         className="group flex flex-col md:flex-row bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 reveal"
                     >
@@ -86,7 +87,7 @@ const ServicesPage: React.FC = () => {
                                 </span>
                             </div>
                         </div>
-                    </a>
+                    </Link>
                 ))}
             </div>
         </div>
