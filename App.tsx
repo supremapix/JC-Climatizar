@@ -87,7 +87,7 @@ const ServiceDetailWrapper: React.FC<{ serviceId: string }> = ({ serviceId }) =>
 
   const serviceDescriptions: Record<string, string> = {
     'instalacao': 'Instalação profissional de ar condicionado split, cassete e piso teto. Garantia de fábrica preservada, tubulação 100% cobre, vácuo no sistema.',
-    'manutencao': 'Manutenção preventiva de ar condicionado para aumentar a vida útil do equipamento e economizar até 30% de energia. PMOC para empresas.',
+    'manutencao': 'Manutenção preventiva de ar condicionado e PMOC para empresas. Consulte o escopo e o orçamento conforme o equipamento e as condições de uso.',
     'limpeza': 'Limpeza e higienização profunda de ar condicionado. Eliminação de fungos, bactérias e mau cheiro. Ar mais saudável para sua família.',
     'infraestrutura': 'Infraestrutura para ar condicionado em obras. Tubulação embutida, drenos e cabos passados antes do acabamento. Evite quebra-quebra!'
   };
