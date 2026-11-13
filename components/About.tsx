@@ -1,42 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 
 const About: React.FC = () => {
-  const statsRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // 1. Stats Counter Logic
-    const statsObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const counters = entry.target.querySelectorAll('.stat-number');
-          counters.forEach((counter) => {
-            const target = parseInt(counter.getAttribute('data-target') || '0');
-            const duration = 2000; 
-            const increment = target / (duration / 16);
-            let current = 0;
-
-            const updateCounter = () => {
-              current += increment;
-              if (current < target) {
-                counter.textContent = Math.ceil(current).toString();
-                requestAnimationFrame(updateCounter);
-              } else {
-                counter.textContent = target.toString() + "+";
-              }
-            };
-            updateCounter();
-          });
-          statsObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.5 });
-
-    if (statsRef.current) {
-      statsObserver.observe(statsRef.current);
-    }
-
-    // 2. Scroll Reveal Logic
+    // Scroll Reveal Logic
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -51,7 +19,6 @@ const About: React.FC = () => {
     }
 
     return () => {
-        statsObserver.disconnect();
         revealObserver.disconnect();
     };
   }, []);
@@ -101,14 +68,14 @@ const About: React.FC = () => {
             </p>
             
             {/* Animated Stats */}
-            <div ref={statsRef} className="grid grid-cols-2 gap-4 md:gap-6 mb-8 md:mb-10">
+            <div className="grid grid-cols-2 gap-4 md:gap-6 mb-8 md:mb-10">
               <div className="bg-gray-50 p-4 rounded-xl border-l-4 border-jc-gold shadow-sm group hover:bg-white hover:shadow-md transition-all">
-                 <span className="stat-number text-2xl md:text-3xl font-black text-jc-navy block mb-1 group-hover:text-jc-goldDark transition-colors" data-target="1500">0</span>
-                 <span className="text-xs md:text-sm text-gray-500 font-medium uppercase">Projetos Entregues</span>
+                 <span className="stat-number text-2xl md:text-3xl font-black text-jc-navy block mb-1 group-hover:text-jc-goldDark transition-colors" >Planejamento</span>
+                 <span className="text-xs md:text-sm text-gray-500 font-medium uppercase">Conforme seu projeto</span>
               </div>
               <div className="bg-gray-50 p-4 rounded-xl border-l-4 border-jc-gold shadow-sm group hover:bg-white hover:shadow-md transition-all">
-                 <span className="stat-number text-2xl md:text-3xl font-black text-jc-navy block mb-1 group-hover:text-jc-goldDark transition-colors" data-target="98">0</span>
-                 <span className="text-xs md:text-sm text-gray-500 font-medium uppercase">% Satisfação</span>
+                 <span className="stat-number text-2xl md:text-3xl font-black text-jc-navy block mb-1 group-hover:text-jc-goldDark transition-colors" >Atendimento</span>
+                 <span className="text-xs md:text-sm text-gray-500 font-medium uppercase">Converse com a equipe</span>
               </div>
             </div>
 

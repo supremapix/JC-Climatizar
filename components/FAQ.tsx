@@ -13,11 +13,11 @@ const faqData: FAQItem[] = [
   },
   {
     question: "Qual a diferença entre manutenção preventiva e corretiva?",
-    answer: "A manutenção preventiva é realizada periodicamente (a cada 3 a 6 meses) para evitar problemas futuros. Inclui limpeza de filtros, verificação de gás, testes elétricos e lubrificação. Já a manutenção corretiva é feita quando o equipamento já apresenta falhas, como falta de refrigeração, vazamentos ou ruídos. A preventiva é mais econômica a longo prazo, pois evita consertos caros e prolonga a vida útil do aparelho em até 40%."
+    answer: "A manutenção preventiva é realizada periodicamente (a cada 3 a 6 meses) para evitar problemas futuros. Inclui limpeza de filtros, verificação de gás, testes elétricos e lubrificação. Já a manutenção corretiva é feita quando o equipamento já apresenta falhas, como falta de refrigeração, vazamentos ou ruídos. A periodicidade e os procedimentos devem considerar o uso, o estado do equipamento e as orientações do fabricante. Consulte a equipe para definir o plano adequado."
   },
   {
     question: "Vocês trabalham com sistemas VRF/VRV?",
-    answer: "Sim! Trabalhamos com sistemas VRF (Variable Refrigerant Flow) e VRV (Variable Refrigerant Volume), que são tecnologias de climatização de alta eficiência para grandes empreendimentos. Esses sistemas permitem controle individual de temperatura em cada ambiente, economia de energia de até 50% e são ideais para prédios comerciais, hotéis, hospitais e indústrias. Nossa equipe é certificada para instalação, manutenção e comissionamento de sistemas VRF/VRV das principais marcas."
+    answer: "Sim! Trabalhamos com sistemas VRF (Variable Refrigerant Flow) e VRV (Variable Refrigerant Volume), que são tecnologias de climatização de alta eficiência para grandes empreendimentos. Esses sistemas permitem controle individual de temperatura em cada ambiente, podem ser avaliados para prédios comerciais, hotéis, hospitais e indústrias conforme o projeto. Consulte a equipe sobre o modelo do equipamento, o escopo do serviço e a documentação técnica necessária."
   },
   {
     question: "Qual a importância do vácuo na instalação?",

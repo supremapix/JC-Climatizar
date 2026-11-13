@@ -32,13 +32,13 @@ export const SERVICES_LIST = [
   },
   {
     title: "Manutenção Preventiva",
-    description: "Evite problemas futuros e garanta a qualidade do ar com nossos planos de manutenção periódica.",
+    description: "Planos de manutenção periódica conforme as condições de uso e as necessidades do equipamento.",
     icon: "fa-clipboard-check",
     id: "manutencao"
   },
   {
     title: "Limpeza e Higienização",
-    description: "Eliminação de fungos e bactérias, garantindo um ar mais saudável para sua família ou empresa.",
+    description: "Limpeza dos componentes do ar condicionado conforme o modelo e as condições do equipamento.",
     icon: "fa-pump-soap",
     id: "limpeza"
   },
@@ -77,7 +77,7 @@ export const DETAILED_SERVICES = [
     icon: "fa-clipboard-check",
     heroImage: "/Manutenção_Preventiva_1765732645524.jpg",
     description: "A falta de manutenção é a principal causa de quebra de ar condicionado. A preventiva detecta falhas antes que elas parem seu equipamento.",
-    longDescription: "Além de garantir o conforto térmico, a manutenção preventiva reduz o consumo de energia em até 30%. Para empresas, oferecemos o PMOC (Plano de Manutenção, Operação e Controle), exigido pela Lei 13.589/2018, garantindo a qualidade do ar e a regularidade fiscal do seu negócio.",
+    longDescription: "A manutenção preventiva permite avaliar as condições de funcionamento e as necessidades do equipamento. Para empresas, oferecemos o PMOC (Plano de Manutenção, Operação e Controle), exigido pela Lei 13.589/2018, garantindo a qualidade do ar e a regularidade fiscal do seu negócio.",
     features: [
       "Verificação da pressão do gás refrigerante",
       "Medição de corrente e tensão elétrica",
@@ -92,11 +92,11 @@ export const DETAILED_SERVICES = [
   {
     id: "limpeza",
     title: "Limpeza e Higienização",
-    subtitle: "Ar puro e saudável livre de fungos e bactérias",
+    subtitle: "Cuidados com a limpeza do seu ar condicionado",
     icon: "fa-pump-soap",
     heroImage: "/limpeza_e_higienizacao_1765732667556.webp",
-    description: "Você sabia que o ar condicionado sujo pode acumular 10x mais bactérias que um banheiro público? Proteja a saúde da sua família.",
-    longDescription: "Nosso processo de higienização é profundo. Não limpamos apenas o filtro; desmontamos a carenagem para acessar a turbina e a serpentina, onde a sujeira realmente se esconde. Utilizamos produtos bactericidas e fungicidas certificados pela ANVISA, eliminando odores e prevenindo doenças respiratórias.",
+    description: "Sujeira nos componentes pode indicar a necessidade de limpeza. Consulte a equipe para avaliar o estado do equipamento e os procedimentos adequados.",
+    longDescription: "Nosso processo de higienização é profundo. Não limpamos apenas o filtro; desmontamos a carenagem para acessar a turbina e a serpentina, onde a sujeira realmente se esconde. Os produtos e procedimentos de limpeza devem ser adequados ao equipamento e utilizados conforme as orientações do fabricante.",
     features: [
       "Desmontagem completa da carenagem",
       "Aplicação de produto bactericida profissional",
