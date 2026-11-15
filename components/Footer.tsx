@@ -28,14 +28,11 @@ const Footer: React.FC = () => {
             </p>
             <div className="flex gap-3 pt-2">
                {[
-                   { icon: 'fa-facebook-f', label: 'Facebook' },
-                   { icon: 'fa-instagram', label: 'Instagram' },
-                   { icon: 'fa-linkedin-in', label: 'LinkedIn' },
                    { icon: 'fa-whatsapp', label: 'WhatsApp', href: `https://wa.me/${COMPANY_INFO.whatsapp}` }
                ].map((social, idx) => (
                    <a 
                      key={idx}
-                     href={social.href || '#'} 
+                     href={social.href} 
                      aria-label={social.label}
                      className="w-10 h-10 rounded-full border border-jc-gold/50 text-jc-gold flex items-center justify-center text-base transition-all duration-300 hover:bg-gradient-gold hover:text-jc-navy hover:-translate-y-1 hover:rotate-12 hover:shadow-[0_0_15px_rgba(255,215,0,0.6)] bg-white/5"
                    >
